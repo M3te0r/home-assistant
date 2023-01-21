@@ -1,0 +1,36 @@
+volet_a_moitite_ouvert:
+  alias: Volet à moitité ouvert
+  sequence:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 60
+  mode: single
+voulet_filet_de_lumiere:
+  alias: Volet filet de lumière
+  sequence:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 11
+  mode: single
+volet_ferme:
+  alias: Volet fermé
+  sequence:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 0
+  mode: single
+volet_ouvert:
+  alias: Volet ouvert
+  sequence:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 100
+  mode: single

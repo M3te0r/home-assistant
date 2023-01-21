@@ -1,1 +1,139 @@
-[]
+- id: '1672770094396'
+  alias: Nouvelle automatisation
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:25:00'
+  condition: []
+  action:
+  - device_id: d65adb7ef8988cc51cadf93952a717c8
+    domain: mobile_app
+    type: notify
+    message: zzzz
+    title: ssss
+  mode: single
+- id: '1672858375016'
+  alias: Ouverture Volet Lever
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:00:00
+  condition: []
+  action:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 100
+  mode: single
+- id: '1672858702469'
+  alias: Fermeture Volet Soir
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition: []
+  action:
+  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+    domain: cover
+    entity_id: cover.volet_salon
+    type: set_position
+    position: 0
+  mode: single
+- id: '1673050277256'
+  alias: Nouvelle automatisation
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      actions:
+      - device_id: d65adb7ef8988cc51cadf93952a717c8
+        domain: mobile_app
+        type: notify
+        message: ujhi
+        title: lhjij
+- id: '1673739340001'
+  alias: Allumer PC Backlight
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_satellite_last_system_state_changed
+    from: unavailable
+    to: SessionUnlock
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_satellite_last_system_state_changed
+    to: SessionUnlock
+    from: SessionLock
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_affichage_display_count
+    from: '1'
+    to: '2'
+  condition: []
+  action:
+  - type: turn_on
+    device_id: ed846cfca5fd4bb6829e9769e07b9e27
+    entity_id: light.ruban_led_rgb_pc_backlight
+    domain: light
+  mode: single
+- id: '1673739436046'
+  alias: Eteindre PC Backlight
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_satellite_last_system_state_changed
+    to: unavailable
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_satellite_last_system_state_changed
+    to: SessionLock
+  - platform: state
+    entity_id:
+    - sensor.m3te0r_affichage_display_count
+    from: '2'
+    to: '1'
+  condition: []
+  action:
+  - type: turn_off
+    device_id: ed846cfca5fd4bb6829e9769e07b9e27
+    entity_id: light.ruban_led_rgb_pc_backlight
+    domain: light
+  mode: single
+- id: '1673822043960'
+  alias: Lumière Mouvement Couloir Cuisine-Salon
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.capteur_mouvement_1_occupancy
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: sun
+    before: sunrise
+    after: sunset
+    enabled: true
+  action:
+  - type: turn_on
+    device_id: 10426913e21cbe7addfda0fbd154bc5d
+    entity_id: light.ampoule_w_couloir_cuisine_salon
+    domain: light
+  - wait_for_trigger:
+    - platform: state
+      entity_id:
+      - binary_sensor.capteur_mouvement_1_occupancy
+      from: 'on'
+      to: 'off'
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: 10426913e21cbe7addfda0fbd154bc5d
+    entity_id: light.ampoule_w_couloir_cuisine_salon
+    domain: light
+  mode: single
