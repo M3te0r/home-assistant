@@ -122,6 +122,10 @@ http:
   trusted_proxies:
     - 192.168.2.27
 
+fastdotcom:
+  scan_interval:
+    hours: 12
+
 # Google Home example configuration.yaml entry
 #emulated_hue:
 #  listen_port: 80

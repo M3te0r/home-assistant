@@ -16,8 +16,9 @@
   alias: Ouverture Volet Lever
   description: ''
   trigger:
-  - platform: time
-    at: 09:00:00
+  - platform: sun
+    event: sunrise
+    offset: 0
   condition: []
   action:
   - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
@@ -30,8 +31,9 @@
   alias: Fermeture Volet Soir
   description: ''
   trigger:
-  - platform: time
-    at: '18:00:00'
+  - platform: sun
+    event: sunset
+    offset: 0
   condition: []
   action:
   - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
@@ -129,7 +131,7 @@
       to: 'off'
   - delay:
       hours: 0
-      minutes: 0
+      minutes: 1
       seconds: 0
       milliseconds: 0
   - type: turn_off
@@ -137,3 +139,31 @@
     entity_id: light.ampoule_w_couloir_cuisine_salon
     domain: light
   mode: single
+- id: '1674518929675'
+  alias: Speedtest update interval
+  description: Speedtest durchführen
+  trigger:
+  - platform: time
+    at: '23:00:00'
+    enabled: false
+  - platform: time
+    at: 07:00:00
+    enabled: false
+  - platform: time
+    at: '15:00:00'
+    enabled: false
+  condition: []
+  action:
+  - service: homeassistant.update_entity
+    data: {}
+    target:
+      entity_id: sensor.speedtest_download
+  mode: single
+- id: '1676853805476'
+  alias: Internet Speed Glow Connect Great
+  description: ''
+  trigger:
+  - platform: template
+    value_template: '{{ states(''sensor.speedtest_download'')|float >= 10 }}'
+  action:
+  - service: shell_command.green
