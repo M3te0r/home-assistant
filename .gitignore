@@ -5,7 +5,12 @@
 !*.yaml
 !.gitignore
 !*.md
-!ui_lovelace_minimalist
+!ui_lovelace_minimalist/
+!ui_lovelace_minimalist/custom_actions
+!ui_lovelace_minimalist/custom_cards
+!ui_lovelace_minimalist/dashboard
+!ui_lovelace_minimalist/dashboard/views
+
 
 # Ignore folders.
 .storage
