@@ -1,0 +1,13 @@
+title: "Maison"
+path: "house"
+icon: "mdi:home"
+cards:
+  - type: "custom:button-card"
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: "custom:button-card"
+    template: card_title
+    name: Maison
+  - type: shopping-list
+    title: Courses

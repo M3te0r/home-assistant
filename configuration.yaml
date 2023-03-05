@@ -122,6 +122,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 192.168.2.27
+    - 192.168.2.125
 
 fastdotcom:
   scan_interval:

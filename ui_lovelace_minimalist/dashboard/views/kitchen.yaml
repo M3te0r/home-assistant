@@ -1,0 +1,69 @@
+title: "Cuisine"
+path: "kitchen"
+icon: "mdi:fridge"
+cards:
+  - type: "custom:button-card"
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: "custom:button-card"
+    template: card_title
+    name: Cuisine
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Température
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_humidity
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Humidité
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+  - type: "custom:button-card"
+    template: card_title
+    name: Devices
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.ampoule_w_couloir_cuisine_salon
+        variables:
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+
+  - type: entities
+    entities:
+      - entity: switch.lave_vaisselle_power
+      - entity: sensor.lave_vaisselle_operation_state
+      - entity: sensor.lave_vaisselle_remaining_program_time
+      - entity: binary_sensor.lave_vaisselle_door
+      - type: buttons
+        entities:
+          - entity: switch.lave_vaisselle_program_eco50
+            name: Eco
+            icon: mdi:sprout
+          - entity: switch.lave_vaisselle_program_intensiv70
+            name: Intense 70°C
+            icon: mdi:thermometer-high
+          - entity: switch.lave_vaisselle_program_quick45
+            name: Quick 45°C
+            icon: mdi:fast-forward-45
+          - entity: switch.lave_vaisselle_program_super60
+            name: 1h 45°C
+            icon: mdi:fast-forward-60

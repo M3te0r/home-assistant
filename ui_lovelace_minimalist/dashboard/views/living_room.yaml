@@ -1,0 +1,113 @@
+title: "Salon"
+path: "living_room"
+icon: "mdi:sofa"
+cards:
+  - type: "custom:button-card"
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: "custom:button-card"
+    template: card_title
+    name: Salon
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Température
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_humidity
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Humidité
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+  - type: "custom:button-card"
+    template: card_title
+    name: Devices
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: switch.prise_1
+        variables:
+          ulm_card_light_name: Prise Lampadère
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+
+  - type: "custom:button-card"
+    template: card_cover
+    entity: cover.volet_salon
+    variables:
+      ulm_card_cover_enable_controls: true
+      ulm_card_cover_enable_slider: true
+      ulm_card_cover_enable_popup: true
+
+  - type: "custom:button-card"
+    template: card_media_player
+    entity: media_player.fire_tv_192_168_2_30
+    variables:
+      ulm_card_media_player_name: Fire TV
+      ulm_card_media_player_enable_art: true
+      ulm_card_media_player_enable_controls: true
+      ulm_card_media_player_power_button: true
+      ulm_card_media_player_more_info: true
+      ulm_card_media_player_collapsible: true
+      ulm_card_media_player_enable_volume_buttons: false
+
+  - type: "custom:button-card"
+    template: card_media_player
+    entity: media_player.yamaha_receiver
+    variables:
+      ulm_card_media_player_name: Ampli Yamaha
+      ulm_card_media_player_enable_art: true
+      ulm_card_media_player_enable_controls: true
+      ulm_card_media_player_power_button: true
+      ulm_card_media_player_more_info: true
+      ulm_card_media_player_collapsible: true
+      ulm_card_media_player_enable_volume_buttons: true
+      ulm_card_media_player_enable_volume_adjust:
+
+  # - type: custom:mushroom-vacuum-card
+  #   entity: vacuum.roborock_s7_maxv
+  #   icon_animation: true
+  #   commands:
+  #     - start_pause
+  #     - stop
+  #     - locate
+  #     - return_home
+  #   fill_container: false
+
+  - type: "custom:button-card"
+    template: card_vacuum
+    entity: vacuum.roborock_s7_maxv
+    variables:
+      ulm_card_vacuum_enable_popup: true
+      ulm_card_vacuum_camera: camera.xiaomi_cloud_map_extractor
+      ulm_card_vacuum_camera_toggle: true
+
+  - type: "custom:button-card"
+    template: card_title
+    name: Capteurs
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+          ulm_show_last_changed: true
+        entity: binary_sensor.roborock_s7_maxv_water_shortage

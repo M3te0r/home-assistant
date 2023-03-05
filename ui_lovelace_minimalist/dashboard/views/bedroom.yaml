@@ -1,0 +1,46 @@
+title: "Chambre"
+path: "bedroom"
+icon: "mdi:bed-double"
+cards:
+  - type: "custom:button-card"
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: "custom:button-card"
+    template: card_title
+    name: Chambre
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_chambre_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Température
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_chambre_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.capteur_temperature_humidite_chambre_humidity
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Humidité
+          ulm_card_graph_entity: sensor.capteur_temperature_humidite_chambre_humidity
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+          ulm_card_graph_group_by: interval
+          ulm_card_graph_line_width: 5
+  - type: "custom:button-card"
+    template: card_title
+    name: Devices
+  - type: "custom:button-card"
+    template: card_cover
+    entity: cover.volet_chambre
+    variables:
+      ulm_card_cover_enable_controls: true
+      ulm_card_cover_enable_slider: true
+      ulm_card_cover_enable_popup: true
