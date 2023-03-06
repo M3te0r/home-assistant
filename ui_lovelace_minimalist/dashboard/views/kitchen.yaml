@@ -49,7 +49,8 @@ cards:
 
   - type: entities
     entities:
-      - entity: switch.lave_vaisselle_power
+      - entity: switch.lave_vaisselle_power.
+      
       - entity: binary_sensor.lave_vaisselle_door
       - type: buttons
         entities:
@@ -69,6 +70,7 @@ cards:
             name: 1h 45°C
             icon: mdi:fast-forward-60
 
+  # https://github.com/rianadon/timer-bar-card/issues/36
   - type: custom:timer-bar-card
     entities:
       - entity: sensor.lave_vaisselle_operation_state
