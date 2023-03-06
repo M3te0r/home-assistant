@@ -50,14 +50,15 @@ cards:
   - type: entities
     entities:
       - entity: switch.lave_vaisselle_power
-      - entity: sensor.lave_vaisselle_operation_state
-      - entity: sensor.lave_vaisselle_remaining_program_time
       - entity: binary_sensor.lave_vaisselle_door
       - type: buttons
         entities:
           - entity: switch.lave_vaisselle_program_eco50
             name: Eco
             icon: mdi:sprout
+          - entity: switch.lave_vaisselle_program_auto2
+            name: Auto
+            icon: mdi:refresh-auto
           - entity: switch.lave_vaisselle_program_intensiv70
             name: Intense 70°C
             icon: mdi:thermometer-high
@@ -67,3 +68,14 @@ cards:
           - entity: switch.lave_vaisselle_program_super60
             name: 1h 45°C
             icon: mdi:fast-forward-60
+
+  - type: custom:timer-bar-card
+    entities:
+      - entity: sensor.lave_vaisselle_operation_state
+        name: Temps restant
+        active_state: Run
+        active_icon: mdi:dishwasher
+        end_time:
+          entity: sensor.lave_vaisselle_remaining_program_time
+        text_width: 4em
+        bar_width: calc(70% - 10em)

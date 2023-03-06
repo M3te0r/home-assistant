@@ -81,6 +81,19 @@ cards:
       ulm_card_media_player_enable_volume_buttons: true
       ulm_card_media_player_enable_volume_adjust:
 
+  - type: "custom:button-card"
+    template: card_media_player
+    entity: media_player.spotify_1158664376
+    variables:
+      ulm_card_media_player_name: Spotify
+      ulm_card_media_player_enable_art: true
+      ulm_card_media_player_enable_controls: true
+      ulm_card_media_player_power_button: true
+      ulm_card_media_player_more_info: true
+      ulm_card_media_player_collapsible: true
+      ulm_card_media_player_enable_volume_buttons: true
+      ulm_card_media_player_enable_volume_adjust:
+
   # - type: custom:mushroom-vacuum-card
   #   entity: vacuum.roborock_s7_maxv
   #   icon_animation: true
