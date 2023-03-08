@@ -1,0 +1,44 @@
+title: "Réseau"
+path: "network"
+icon: "mdi:wan"
+cards:
+  - type: "custom:button-card"
+    template: chip_back
+    variables:
+      ulm_chip_back_path: home
+  - type: "custom:button-card"
+    template: card_title
+    name: Réseau
+
+  - type: custom:stack-in-card
+    title: OPNsense
+    mode: vertical
+    cards:
+      - type: "custom:button-card"
+        template: "custom_card_vncntdev_device_tracker"
+        entity: sensor.opnsense_gateway_wan_gw_status
+        variables:
+          custom_card_vncntdev_device_tracker_status_as_name: true
+      - type: "custom:button-card"
+        template: "custom_card_apexcharts"
+        variables:
+          chart_type: "radialBar"
+          graph_span: "1h"
+          entity_1:
+            entity_id: "sensor.opnsense_system_load_average_one_minute"
+            icon: "mdi:cpu-64-bit"
+            name: "CPU"
+            color: "blue"
+            max_value: 3
+          entity_2:
+            entity_id: "sensor.opnsense_memory_used_percentage"
+            icon: "mdi:memory"
+            name: "Mémoire"
+            color: "yellow"
+            max_value: 100
+          entity_3:
+            entity_id: "sensor.opnsense_filesystem_used_percentage_slash"
+            icon: "mdi:cpu-64-bit"
+            name: "Stockage"
+            color: "green"
+            max_value: 100
