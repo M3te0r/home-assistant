@@ -10,8 +10,8 @@ card_esh_room_lights:
     - "ulm_translation_engine"
   size: "20px"
   variables:
-    ulm_custom_card_esh_room_light_entity: null
-    ulm_custom_card_esh_room_climate_entity: null
+    ulm_custom_card_esh_room_light_entity_1: null
+    ulm_custom_card_esh_room_light_entity_2: null
     ulm_card_thermostat_enable_popup: false
     ulm_card_light_enable_popup: false
     ulm_card_dynamic_color: false
@@ -19,8 +19,8 @@ card_esh_room_lights:
     ulm_card_esh_room_light_icon_off: "mdi:lightbulb-off"
   label: >-
     [[[
-      var label_entity = variables.ulm_custom_card_esh_room_light_entity
-        ? states[variables.ulm_custom_card_esh_room_light_entity]
+      var label_entity = variables.ulm_custom_card_esh_room_light_entity_1
+        ? states[variables.ulm_custom_card_esh_room_light_entity_1]
         : entity;
       if (!label_entity) {
         return "<br />";
@@ -38,9 +38,9 @@ card_esh_room_lights:
       - padding: "12px"
       - background-color: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity) {
-              var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_esh_room_light_entity].state == "on") {
+            if (variables.ulm_custom_card_esh_room_light_entity_1) {
+              var color = states[variables.ulm_custom_card_esh_room_light_entity_1].attributes.rgb_color;
+              if (states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 0.2)';
                 }
@@ -52,11 +52,11 @@ card_esh_room_lights:
     grid:
       - grid-template-areas: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
               return "'i light' 'n climate' 'l climate'";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "'i light' 'n n' 'l l'";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
               return "'i .' 'n climate' 'l climate'";
             } else {
               return "'i .' 'n n' 'l l'";
@@ -67,17 +67,17 @@ card_esh_room_lights:
     icon:
       - filter: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity
-                && states[variables.ulm_custom_card_esh_room_light_entity].state == "on"
+            if (variables.ulm_custom_card_esh_room_light_entity_1
+                && states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on"
                 && variables.ulm_card_dynamic_color) {
               return "contrast(0.6) saturate(1.7)";
             }
           ]]]
       - color: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity) {
-              var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_esh_room_light_entity].state == "on") {
+            if (variables.ulm_custom_card_esh_room_light_entity_1) {
+              var color = states[variables.ulm_custom_card_esh_room_light_entity_1].attributes.rgb_color;
+              if (states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 1)';
                 }
@@ -94,9 +94,9 @@ card_esh_room_lights:
       - margin-left: "12px"
       - background-color: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity) {
-              var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_esh_room_light_entity].state == "on") {
+            if (variables.ulm_custom_card_esh_room_light_entity_1) {
+              var color = states[variables.ulm_custom_card_esh_room_light_entity_1].attributes.rgb_color;
+              if (states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 0.3)';
                 }
@@ -113,11 +113,11 @@ card_esh_room_lights:
       - margin-left: "12px"
       - margin-top: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
               return "8px";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "12px";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
               return "8px";
             } else {
               return "12px";
@@ -125,11 +125,11 @@ card_esh_room_lights:
           ]]]
       - max-width: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
               return "85%";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "100%";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
               return "85%";
             } else {
               return "100%";
@@ -137,9 +137,9 @@ card_esh_room_lights:
           ]]]
       - color: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity) {
-              var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
-              if (states[variables.ulm_custom_card_esh_room_light_entity].state == "on") {
+            if (variables.ulm_custom_card_esh_room_light_entity_1) {
+              var color = states[variables.ulm_custom_card_esh_room_light_entity_1].attributes.rgb_color;
+              if (states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on") {
                 if (color && variables.ulm_card_dynamic_color) {
                   return 'rgba(' + color + ', 1)';
                 }
@@ -151,8 +151,8 @@ card_esh_room_lights:
           ]]]
       - filter: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity
-                && states[variables.ulm_custom_card_esh_room_light_entity].state == "on"
+            if (variables.ulm_custom_card_esh_room_light_entity_1
+                && states[variables.ulm_custom_card_esh_room_light_entity_1].state == "on"
                 && variables.ulm_card_dynamic_color) {
               return "contrast(0.6) saturate(1.7)";
             }
@@ -166,11 +166,11 @@ card_esh_room_lights:
       - margin-left: "12px"
       - margin-bottom: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
               return "0px";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "3px";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
               return "0px";
             } else {
               return "3px";
@@ -178,11 +178,11 @@ card_esh_room_lights:
           ]]]
       - max-width: >-
           [[[
-            if (variables.ulm_custom_card_esh_room_light_entity && variables.ulm_custom_card_esh_room_climate_entity) {
+            if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
               return "85%";
-            } else if (variables.ulm_custom_card_esh_room_light_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "100%";
-            } else if (variables.ulm_custom_card_esh_room_climate_entity) {
+            } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
               return "85%";
             } else {
               return "100%";
@@ -199,7 +199,7 @@ card_esh_room_lights:
       light:
         - display: >
             [[[
-              if (variables.ulm_custom_card_esh_room_light_entity) {
+              if (variables.ulm_custom_card_esh_room_light_entity_1) {
                   return "block";
               } else {
                   return "none";
@@ -208,7 +208,7 @@ card_esh_room_lights:
       climate:
         - display: >
             [[[
-              if (variables.ulm_custom_card_esh_room_climate_entity) {
+              if (variables.ulm_custom_card_esh_room_light_entity_2) {
                 return "block";
               } else {
                 return "none";
@@ -217,7 +217,7 @@ card_esh_room_lights:
   custom_fields:
     light:
       card:
-        entity: "[[[ return variables.ulm_custom_card_esh_room_light_entity ]]]"
+        entity: "[[[ return variables.ulm_custom_card_esh_room_light_entity_1 ]]]"
         name: "[[[ return name ]]]"
         state:
           - value: "on"
@@ -228,8 +228,8 @@ card_esh_room_lights:
               img_cell:
                 - background-color: >-
                     [[[
-                      if (variables.ulm_custom_card_esh_room_light_entity) {
-                        var color = states[variables.ulm_custom_card_esh_room_light_entity].attributes.rgb_color;
+                      if (variables.ulm_custom_card_esh_room_light_entity_1) {
+                        var color = states[variables.ulm_custom_card_esh_room_light_entity_1].attributes.rgb_color;
                         if (color && variables.ulm_card_dynamic_color) {
                           return 'rgba(' + color + ', 0.3)';
                         }
@@ -251,7 +251,7 @@ card_esh_room_lights:
               vars.ulm_custom_popup = {
                 'template': 'popup_light_brightness',
                 'popup_variables': {
-                  'ulm_popup_light_entity': variables.ulm_custom_card_esh_room_light_entity,
+                  'ulm_popup_light_entity': variables.ulm_custom_card_esh_room_light_entity_1,
                 }
               };
             }
@@ -259,7 +259,7 @@ card_esh_room_lights:
           ]]]
     climate:
       card:
-        entity: "[[[ return variables.ulm_custom_card_esh_room_climate_entity ]]]"
+        entity: "[[[ return variables.ulm_custom_card_esh_room_light_entity_2 ]]]"
         name: "[[[ return name ]]]"
         state:
           - value: "off"
@@ -280,7 +280,7 @@ card_esh_room_lights:
               vars.ulm_custom_popup = {
                 'template': 'popup_thermostat_temperature',
                 'popup_variables': {
-                  'ulm_popup_thermostat_entity': variables.ulm_custom_card_esh_room_climate_entity,
+                  'ulm_popup_thermostat_entity': variables.ulm_custom_card_esh_room_light_entity_2,
                 }
               };
             }
