@@ -76,7 +76,7 @@ cards:
             icon: "mdi:lightbulb"
         label: >
           [[[
-            return "🌡️ " + states['sensor.capteur_temperature_humidite_temperature'].state + " °C" + " 💧 " + states['sensor.capteur_temperature_humidite_humidity'].state + " %"
+            return "🌡️ " + states['sensor.capteur_temperature_humidite_temperature'].state + " °C" + "<br /> 💧 " + states['sensor.capteur_temperature_humidite_humidity'].state + " %"
           ]]]
       ###### CUISINE ######
       - type: "custom:button-card"

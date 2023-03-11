@@ -53,11 +53,11 @@ card_esh_room_lights:
       - grid-template-areas: >-
           [[[
             if (variables.ulm_custom_card_esh_room_light_entity_1 && variables.ulm_custom_card_esh_room_light_entity_2) {
-              return "'i light' 'n climate' 'l climate'";
+              return "'i light1' 'n light2' 'l light2'";
             } else if (variables.ulm_custom_card_esh_room_light_entity_1) {
               return "'i light' 'n n' 'l l'";
             } else if (variables.ulm_custom_card_esh_room_light_entity_2) {
-              return "'i .' 'n climate' 'l climate'";
+              return "'i .' 'n light2' 'l light2'";
             } else {
               return "'i .' 'n n' 'l l'";
             }

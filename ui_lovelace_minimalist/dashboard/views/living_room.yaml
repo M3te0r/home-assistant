@@ -47,7 +47,13 @@ cards:
           ulm_card_light_name: Prise Lampadère
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
-
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.ampoule_rgbw_salon
+        variables:
+          ulm_card_light_name: Plafonnier
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
   - type: "custom:button-card"
     template: card_cover
     entity: cover.volet_salon
