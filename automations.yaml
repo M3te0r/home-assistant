@@ -33,9 +33,31 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: 0
+    offset: -00:20:00
   condition: []
   action:
+  - if:
+    - condition: or
+      conditions:
+      - condition: device
+        device_id: d65adb7ef8988cc51cadf93952a717c8
+        domain: device_tracker
+        entity_id: device_tracker.cph2399
+        type: is_home
+      - condition: device
+        device_id: 2895e1137403e2f6b7eb238bbc79c9f6
+        domain: device_tracker
+        entity_id: device_tracker.m2003j15sc
+        type: is_home
+    then:
+    - type: turn_on
+      device_id: 6740f277e207fb8d884337b8df4372e6
+      entity_id: switch.prise_1
+      domain: switch
+  - wait_for_trigger:
+    - platform: sun
+      event: sunset
+      offset: +00:20:00
   - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
     domain: cover
     entity_id: cover.volet_salon
