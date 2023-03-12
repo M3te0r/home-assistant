@@ -42,3 +42,17 @@ cards:
             name: "Stockage"
             color: "green"
             max_value: 100
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_generic_swap
+            variables:
+              ulm_card_generic_swap_name: Download
+              ulm_card_generic_swap_icon: "mdi:cloud-download"
+            entity: sensor.freebox_download_speed_mbytes_per_sec
+          - type: "custom:button-card"
+            template: card_generic_swap
+            variables:
+              ulm_card_generic_swap_name: Upload
+              ulm_card_generic_swap_icon: "mdi:cloud-upload"
+            entity: sensor.freebox_upload_speed_mbytes_per_sec
