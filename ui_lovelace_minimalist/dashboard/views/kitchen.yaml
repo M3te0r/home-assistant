@@ -14,22 +14,22 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_graph
-        entity: sensor.capteur_temperature_humidite_temperature
+        entity: sensor.capteur_temperaure_humidite_salon_temperature
         variables:
           ulm_card_graph_color: "var(--google-blue)"
           ulm_card_graph_name: Température
-          ulm_card_graph_entity: sensor.capteur_temperature_humidite_temperature
+          ulm_card_graph_entity: sensor.capteur_temperaure_humidite_salon_temperature
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
           ulm_card_graph_group_by: interval
           ulm_card_graph_line_width: 5
       - type: "custom:button-card"
         template: card_graph
-        entity: sensor.capteur_temperature_humidite_humidity
+        entity: sensor.capteur_temperaure_humidite_salon_humidity
         variables:
           ulm_card_graph_color: "var(--google-red)"
           ulm_card_graph_name: Humidité
-          ulm_card_graph_entity: sensor.capteur_temperature_humidite_humidity
+          ulm_card_graph_entity: sensor.capteur_temperaure_humidite_salon_humidity
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
           ulm_card_graph_group_by: interval
