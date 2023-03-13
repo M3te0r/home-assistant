@@ -56,3 +56,11 @@ cards:
               ulm_card_generic_swap_name: Upload
               ulm_card_generic_swap_icon: "mdi:cloud-upload"
             entity: sensor.freebox_upload_speed_mbytes_per_sec
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_generic_swap
+            variables:
+              ulm_card_generic_swap_name: Fast.com Download speed
+              ulm_card_generic_swap_icon: "mdi:cloud-download"
+            entity: sensor.fast_com_download
