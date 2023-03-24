@@ -116,6 +116,9 @@ cards:
           - card_esh_room
           - yellow_on
         name: Bureau
+        entity: switch.switch_bureau
+        variables:
+          ulm_custom_card_esh_room_light_entity: switch.switch_bureau
         icon: mdi:office-building
         tap_action:
           action: navigate

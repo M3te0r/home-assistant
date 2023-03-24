@@ -33,7 +33,7 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:20:00
+    offset: -00:30:00
   condition: []
   action:
   - if:
@@ -64,18 +64,6 @@
     type: set_position
     position: 0
   mode: single
-- id: '1673050277256'
-  alias: Nouvelle automatisation
-  description: ''
-  use_blueprint:
-    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
-    input:
-      actions:
-      - device_id: d65adb7ef8988cc51cadf93952a717c8
-        domain: mobile_app
-        type: notify
-        message: ujhi
-        title: lhjij
 - id: '1673739340001'
   alias: Allumer PC Backlight
   description: ''
