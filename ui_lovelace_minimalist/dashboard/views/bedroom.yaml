@@ -34,6 +34,17 @@ cards:
           ulm_card_graph_hours: 24
           ulm_card_graph_group_by: interval
           ulm_card_graph_line_width: 5
+
+  - type: horizontal-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_light
+        entity: switch.switch_chambre
+        variables:
+          ulm_card_light_name: Lumière
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+
   - type: "custom:button-card"
     template: card_title
     name: Devices

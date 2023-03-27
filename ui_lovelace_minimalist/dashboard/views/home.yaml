@@ -101,7 +101,9 @@ cards:
           - card_esh_room
           - yellow_on
         name: Chambre
-        entity: cover.volet_chambre
+        entity: switch.switch_chambre
+        variables:
+          ulm_custom_card_esh_room_light_entity: switch.switch_chambre
         icon: mdi:bed-double
         tap_action:
           action: navigate
