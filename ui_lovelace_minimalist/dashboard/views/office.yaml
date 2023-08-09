@@ -1,6 +1,7 @@
 title: "Bureau"
 path: "office"
 icon: "mdi:office-building"
+type: custom:vertical-layout
 cards:
   - type: "custom:button-card"
     template: chip_back

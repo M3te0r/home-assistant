@@ -1,0 +1,14 @@
+title: Wall Panel Camera
+path: camera
+type: panel
+icon: "mdi:camera"
+badges: []
+cards:
+  - type: picture-entity
+    show_state: false
+    show_name: false
+    camera_view: live
+    entity: camera.192_168_2_124
+    name: Camera
+    camera_image: camera.192_168_2_124
+    aspect_ratio: 133%

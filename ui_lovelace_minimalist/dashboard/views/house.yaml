@@ -1,6 +1,7 @@
 title: "Maison"
 path: "house"
 icon: "mdi:home"
+type: custom:vertical-layout
 cards:
   - type: "custom:button-card"
     template: chip_back

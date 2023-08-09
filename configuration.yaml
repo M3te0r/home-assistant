@@ -5,6 +5,11 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
+homeassistant:
+  customize:
+    zone.home:
+      radius: 20
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -26,6 +31,10 @@ sensor:
         value_template: "{{ (states('sensor.freebox_upload_speed') | float / 1000) | round(3) }}"
         unit_of_measurement: MB/s
         device_class: data_rate
+      outside_temperature:
+        friendly_name: "outside_temperature"
+        unit_of_measurement: "°C"
+        value_template: "{{ state_attr('weather.bordeaux', 'temperature') }}"
   - platform: time_date
     display_options:
       - "time"

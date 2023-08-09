@@ -12,3 +12,4 @@ views:
   - !include views/office.yaml
   - !include views/house.yaml
   - !include views/network.yaml
+  - !include views/wall_panel_camera.yaml

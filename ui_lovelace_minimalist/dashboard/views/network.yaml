@@ -9,6 +9,9 @@ cards:
   - type: "custom:button-card"
     template: card_title
     name: Réseau
+  - type: "custom:button-card"
+    template: custom_chip_myenedis
+    entity: sensor.myenedis_50080550746371
 
   - type: custom:stack-in-card
     title: OPNsense

@@ -1,7 +1,14 @@
 title: "Home"
 path: "home"
 icon: "mdi:flower"
+type: custom:vertical-layout
 cards:
+  - type: "custom:button-card"
+    template: chip_temperature
+    variables:
+      ulm_chip_temperature_inside: sensor.capteur_temperaure_humidite_salon_temperature
+      ulm_chip_temperature_outside: sensor.outside_temperature
+      ulm_chip_temperature_weather: weather.bordeaux
   - type: "custom:button-card"
     template: "card_esh_welcome"
     triggers_update: "input_boolean.minimalist_dropdown"
@@ -37,19 +44,25 @@ cards:
   - type: "horizontal-stack"
     cards:
       - type: "custom:button-card"
-        template: card_person
+        template: card_person_info
         entity: person.mathieu
         variables:
           ulm_card_person_entity: person.mathieu
           ulm_card_person_use_entity_picture: true
           ulm_card_person_icon: mdi:face-man
+          ulm_multiline: true
+          ulm_card_person_battery_entity: sensor.cph2399_battery_level
+          ulm_card_person_battery_state_entity: sensor.cph2399_battery_state
       - type: "custom:button-card"
-        template: card_person
+        template: card_person_info
         entity: person.marie
         variables:
           ulm_card_person_entity: person.marie
           ulm_card_person_use_entity_picture: true
           ulm_card_person_icon: mdi:face-woman
+          ulm_multiline: true
+          ulm_card_person_battery_entity: sensor.m2003j15sc_battery_level
+          ulm_card_person_battery_state_entity: sensor.m2003j15sc_battery_state
   - type: "custom:button-card"
     template: card_title
     name: Pièces
@@ -142,3 +155,21 @@ cards:
       ulm_card_thermostat_enable_popup: true
       ulm_card_thermostat_enable_display_temperature: false
       ulm_card_thermostat_enable_horizontal: false
+
+  - type: logbook
+    entities:
+      - light.prise_1
+      - light.ampoule_rgbw_salon
+      - binary_sensor.capteur_mouvement_1_occupancy
+      - binary_sensor.capteur_mouvement_salon_occupancy
+      - light.switch_bureau
+      - light.switch_chambre
+      - light.ampoule_w_couloir_cuisine_salon
+      - cover.volet_salon
+      - cover.volet_chambre
+      - vacuum.roborock_s7_maxv
+      - switch.lave_vaisselle_power
+      - sensor.lave_vaisselle_operation_state
+      - switch.android_bluedroid_screen
+      - person.mathieu
+      - person.marie
