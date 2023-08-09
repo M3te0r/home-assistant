@@ -1,6 +1,7 @@
 title: "Réseau"
 path: "network"
 icon: "mdi:wan"
+type: custom:vertical-layout
 cards:
   - type: "custom:button-card"
     template: chip_back
@@ -12,7 +13,36 @@ cards:
   - type: "custom:button-card"
     template: custom_chip_myenedis
     entity: sensor.myenedis_50080550746371
-
+  - type: "custom:button-card"
+    title: Mete0r NAS
+    template: "custom_card_nik_nas"
+    entity: sensor.mete0r_nas_cpu_load_average_1_min
+    variables:
+      graph_span: "1d"
+      chart_type: "radialBar"
+      entity_1:
+        entity_id: "sensor.mete0r_nas_temperature"
+        icon: ""
+        name: "Temp"
+        color: "yellow"
+        max_value: 100
+      entity_2:
+        entity_id: "sensor.mete0r_nas_memory_usage_real"
+        icon: ""
+        name: "Memory"
+        color: "blue"
+        max_value: 100
+      entity_3:
+        entity_id: "sensor.mete0r_nas_cpu_utilization_total"
+        icon: ""
+        name: "CPU"
+        color: "green"
+        max_value: 100
+      entity_4:
+        entity_id: "sensor.mete0r_nas_volume_4_volume_used"
+        icon: "mdi:harddisk"
+        name: "Disk"
+        color: "red"
   - type: custom:stack-in-card
     title: OPNsense
     mode: vertical
