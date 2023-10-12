@@ -37,9 +37,9 @@
         type: is_home
     then:
     - type: turn_on
-      device_id: 6740f277e207fb8d884337b8df4372e6
-      entity_id: switch.prise_1
-      domain: switch
+      device_id: b50a528b38b49b0e8ee89a8550736b1e
+      entity_id: 77bad382b924c8ada9c18ca80d26b803
+      domain: light
   - wait_for_trigger:
     - platform: sun
       event: sunset

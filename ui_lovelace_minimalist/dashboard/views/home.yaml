@@ -76,13 +76,13 @@ cards:
           - card_esh_room_lights
           - yellow_on
         name: Salon
-        entity: switch.prise_1
+        entity: light.lumieres_salon
         icon: mdi:sofa
         tap_action:
           action: navigate
           navigation_path: "living_room"
         variables:
-          ulm_custom_card_esh_room_light_entity_1: switch.prise_1
+          ulm_custom_card_esh_room_light_entity_1: light.lampadaire_salon
           ulm_custom_card_esh_room_light_entity_2: light.ampoule_rgbw_salon
         state:
           - value: "off"
@@ -158,7 +158,7 @@ cards:
 
   - type: logbook
     entities:
-      - light.prise_1
+      - switch.prise_lave_linge
       - light.ampoule_rgbw_salon
       - binary_sensor.capteur_mouvement_1_occupancy
       - binary_sensor.capteur_mouvement_salon_occupancy

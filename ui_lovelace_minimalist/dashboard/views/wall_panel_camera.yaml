@@ -8,7 +8,7 @@ cards:
     show_state: false
     show_name: false
     camera_view: live
-    entity: camera.192_168_2_124
+    entity: camera.192_168_2_124_2
     name: Camera
-    camera_image: camera.192_168_2_124
+    camera_image: camera.192_168_2_124_2
     aspect_ratio: 133%

@@ -9,6 +9,8 @@ homeassistant:
   customize:
     zone.home:
       radius: 20
+recorder:
+  purge_keep_days: 120
 
 # Text to speech
 tts:
@@ -80,17 +82,6 @@ sensor:
       - type: processor_temperature
       - type: last_boot
 
-camera:
-  - platform: xiaomi_cloud_map_extractor
-    host: !secret xiaomi_vacuum_host
-    token: !secret xiaomi_vacuum_token
-    username: !secret xiaomi_cloud_username
-    password: !secret xiaomi_cloud_password
-    draw: ["all"]
-    attributes:
-      - calibration_points
-    scan_interval: 2
-
 http:
   use_x_forwarded_for: true
   trusted_proxies:
@@ -102,6 +93,8 @@ bluetooth:
 fastdotcom:
   scan_interval:
     hours: 12
+
+powercalc:
 
 automation: !include automations.yaml
 script: !include scripts.yaml

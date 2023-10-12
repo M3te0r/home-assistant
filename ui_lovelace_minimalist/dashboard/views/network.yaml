@@ -18,7 +18,7 @@ cards:
     template: "custom_card_nik_nas"
     entity: sensor.mete0r_nas_cpu_load_average_1_min
     variables:
-      graph_span: "1d"
+      graph_span: "1h"
       chart_type: "radialBar"
       entity_1:
         entity_id: "sensor.mete0r_nas_temperature"
