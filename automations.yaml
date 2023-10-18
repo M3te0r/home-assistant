@@ -100,6 +100,10 @@
     device_id: ed846cfca5fd4bb6829e9769e07b9e27
     entity_id: light.ruban_led_rgb_pc_backlight
     domain: light
+  - type: turn_off
+    device_id: 3cf59aae4dab4736703593ce385e5109
+    entity_id: 82de55f8c607126dfd37b8eac710244f
+    domain: light
   mode: single
 - id: '1673822043960'
   alias: Lumière Mouvement Couloir Cuisine-Salon
@@ -136,34 +140,6 @@
     entity_id: light.ampoule_w_couloir_cuisine_salon
     domain: light
   mode: single
-- id: '1674518929675'
-  alias: Speedtest update interval
-  description: Speedtest durchführen
-  trigger:
-  - platform: time
-    at: '23:00:00'
-    enabled: false
-  - platform: time
-    at: 07:00:00
-    enabled: false
-  - platform: time
-    at: '15:00:00'
-    enabled: false
-  condition: []
-  action:
-  - service: homeassistant.update_entity
-    data: {}
-    target:
-      entity_id: sensor.speedtest_download
-  mode: single
-- id: '1676853805476'
-  alias: Internet Speed Glow Connect Great
-  description: ''
-  trigger:
-  - platform: template
-    value_template: '{{ states(''sensor.speedtest_download'')|float >= 10 }}'
-  action:
-  - service: shell_command.green
 - id: '1689715410941'
   alias: Enable/Disable wallpanel charging
   description: ''

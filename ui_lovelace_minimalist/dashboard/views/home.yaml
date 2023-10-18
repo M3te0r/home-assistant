@@ -128,19 +128,23 @@ cards:
       ###### Bureau ######
       - type: "custom:button-card"
         template:
-          - card_esh_room
+          - card_esh_room_lights
           - yellow_on
         name: Bureau
         entity: switch.switch_bureau
         variables:
-          ulm_custom_card_esh_room_light_entity: switch.switch_bureau
+          ulm_custom_card_esh_room_light_entity_1: switch.switch_bureau
+          ulm_custom_card_esh_room_light_entity_2: light.lampe_rgbw_bureau_pc
+        state:
+          - value: "off"
+            icon: "mdi:lightbulb"
         icon: mdi:office-building
         tap_action:
           action: navigate
           navigation_path: "office"
         label: >
           [[[
-            return "🌡️ " + states['sensor.capteur_temperaure_humidite_bureau_temperature'].state + " °C" + " 💧 " + states['sensor.capteur_temperaure_humidite_bureau_humidity'].state + " %"
+            return "🌡️" + states['sensor.capteur_temperaure_humidite_bureau_temperature'].state + " °C" + "<br /> 💧" + states['sensor.capteur_temperaure_humidite_bureau_humidity'].state + " %"
           ]]]
   - type: "custom:button-card"
     template: card_title

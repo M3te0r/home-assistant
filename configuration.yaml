@@ -6,11 +6,26 @@ frontend:
   themes: !include_dir_merge_named themes
 
 homeassistant:
+  allowlist_external_dirs:
+    - /config
   customize:
     zone.home:
       radius: 20
+
 recorder:
-  purge_keep_days: 120
+  purge_keep_days: 200
+  exclude:
+    entities:
+      - climate.thermostat
+      - lock.thermostat_child_lock
+      - number.thermostat_deadzone_temperature
+      - number.thermostat_local_temperature_calibration
+      - number.thermostat_max_temperature_limit
+      - number.thermostat_min_temperature_limit
+      - select.thermostat_sensor
+      - switch.ruban_led_rgb_pc_backlight_do_not_disturb
+      - select.ruban_led_rgb_pc_backlight_color_power_on_behavior
+      - media_player.m3te0r
 
 # Text to speech
 tts:
@@ -19,6 +34,30 @@ tts:
 media_player:
   - platform: yamaha
     host: 192.168.2.28
+
+expose_camera_stream_source:
+
+wake_on_lan:
+
+switch:
+  - platform: wake_on_lan
+    mac: 30:85:a9:94:57:7b
+    name: WOL M3te0r PC
+  - platform: wake_on_lan
+    mac: 00:a0:de:de:2e:a8
+    name: WOL Yamaha R-N500
+  - platform: wake_on_lan
+    mac: b4:22:00:72:d3:57
+    name: WOL Imprimante
+  - platform: wake_on_lan
+    mac: a4:4c:c8:73:56:7a
+    name: WOL Marie Laptop
+  - platform: wake_on_lan
+    mac: 8c:8c:aa:74:df:f0
+    name: WOL Thinkpad Mathieu
+  - platform: wake_on_lan
+    mac: 00:11:32:8c:51:87
+    name: WOL DS1618+ NAS
 
 sensor:
   - platform: template
@@ -63,21 +102,21 @@ sensor:
       - type: load_5m
       - type: load_15m
       - type: network_in
-        arg: eth0
+        arg: end0
       - type: network_out
-        arg: eth0
+        arg: end0
       - type: throughput_network_in
-        arg: eth0
+        arg: end0
       - type: throughput_network_out
-        arg: eth0
+        arg: end0
       - type: packets_in
-        arg: eth0
+        arg: end0
       - type: packets_out
-        arg: eth0
+        arg: end0
       - type: ipv4_address
-        arg: eth0
+        arg: end0
       - type: ipv6_address
-        arg: eth0
+        arg: end0
       - type: processor_use
       - type: processor_temperature
       - type: last_boot
