@@ -1,0 +1,109 @@
+# Welcome !
+
+This is my Home Assistant installation.
+
+## Some statistics about my installation:
+
+Description | value
+-- | --
+Number of entities | 612
+Number of sensors | 329
+
+
+## My installed extensions:
+
+### Add-ons
+- Advanced SSH & Web Terminal
+- AirCast
+- Barcode Buddy for Grocy
+- CEC Scanner
+- diyHue
+- Git pull
+- Glances
+- Grocy
+- Home Assistant Google Drive Backup
+- Log Viewer
+- Mosquitto broker
+- Node-RED
+- Piper
+- RPC Shutdown
+- SQLite Web
+- Studio Code Server
+- TooGoodToGo Home Assistant MQTT Bridge
+- Uptime Kuma
+- Whisper
+- Zigbee2MQTT
+
+### Custom integrations
+- [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
+- [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
+- [Candy Simply Fi](https://github.com/ofalvai/home-assistant-candy)
+- [Chroma](https://github.com/Vaskivskyi/ha-chroma)
+- [Expose Camera Stream Source](https://github.com/felipecrs/hass-expose-camera-stream-source)
+- [Generate Readme](https://github.com/custom-components/readme)
+- [HACS](https://github.com/hacs/integration)
+- [Hass.Agent](https://github.com/LAB02-Research/HASS.Agent-Integration)
+- [Hass.Agent Notifier](https://github.com/LAB02-Research/HASS.Agent-Notifier)
+- [My Ecowatt By Rte](https://github.com/kamaradclimber/rte-ecowatt)
+- [Node Red Companion](https://github.com/zachowj/hass-node-red)
+- [Opnsense Integration For Home Assistant](https://github.com/travisghansen/hass-opnsense)
+- [Powercalc](https://github.com/bramstroker/homeassistant-powercalc)
+- [Retry](https://github.com/amitfin/retry)
+- [Shopping List With Grocy](https://github.com/Anrolosia/Shopping-List-with-Grocy)
+- [Ui Lovelace Minimalist](https://github.com/UI-Lovelace-Minimalist/UI)
+- [Vigieau](https://github.com/kamaradclimber/vigieau)
+- [Watchman](https://github.com/dummylabs/thewatchman)
+- [Xiaomi Cloud Map Extractor](https://github.com/PiotrMachowski/Home-Assistant-custom-components-Xiaomi-Cloud-Map-Extractor)
+- [⚡ Myenedis Sensor](https://github.com/saniho/apiEnedis)
+
+### Lovelace plugins
+- [Apexcharts Card](https://github.com/RomRider/apexcharts-card)
+- [Auto Entities](https://github.com/thomasloven/lovelace-auto-entities)
+- [Banner Card](https://github.com/nervetattoo/banner-card)
+- [Bar Card](https://github.com/custom-cards/bar-card)
+- [Battery State Card / Entity Row](https://github.com/maxwroc/battery-state-card)
+- [Big Slider Card](https://github.com/nicufarmache/lovelace-big-slider-card)
+- [Bootstrap Grid Card](https://github.com/ownbee/bootstrap-grid-card)
+- [Button Card](https://github.com/custom-cards/button-card)
+- [Canary](https://github.com/jcwillox/lovelace-canary)
+- [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
+- [Collapsable Cards](https://github.com/RossMcMillan92/lovelace-collapsable-cards)
+- [Energy Entity Row](https://github.com/zeronounours/lovelace-energy-entity-row)
+- [Energy Period Selector Plus](https://github.com/flixlix/energy-period-selector-plus)
+- [Fluid Level Background Card](https://github.com/swingerman/lovelace-fluid-level-background-card)
+- [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [Hass Hue Icons](https://github.com/arallsopp/hass-hue-icons)
+- [History Explorer Card](https://github.com/alexarch21/history-explorer-card)
+- [Hourly Weather Card](https://github.com/decompil3d/lovelace-hourly-weather)
+- [Layout Card](https://github.com/thomasloven/lovelace-layout-card)
+- [Light Entity Card](https://github.com/ljmerza/light-entity-card)
+- [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
+- [Mini Media Player](https://github.com/kalkih/mini-media-player)
+- [Multiple Entity Row](https://github.com/benct/lovelace-multiple-entity-row)
+- [Mushroom](https://github.com/piitaya/lovelace-mushroom)
+- [My Cards Bundle](https://github.com/AnthonMS/my-cards)
+- [Paper Buttons Row](https://github.com/jcwillox/lovelace-paper-buttons-row)
+- [Plotly Graph Card](https://github.com/dbuezas/lovelace-plotly-graph-card)
+- [Rain Gauge Card](https://github.com/t1gr0u/rain-gauge-card)
+- [Rgb Light Card](https://github.com/bokub/rgb-light-card)
+- [Room Card](https://github.com/marcokreeft87/room-card)
+- [Shutter Card](https://github.com/Deejayfool/hass-shutter-card)
+- [Simple Weather Card](https://github.com/kalkih/simple-weather-card)
+- [Slider Entity Row](https://github.com/thomasloven/lovelace-slider-entity-row)
+- [Stack In Card](https://github.com/custom-cards/stack-in-card)
+- [State Switch](https://github.com/thomasloven/lovelace-state-switch)
+- [Sun Card](https://github.com/AitorDB/home-assistant-sun-card)
+- [Swipe Card](https://github.com/bramkragten/swipe-card)
+- [Timer Bar Card](https://github.com/rianadon/timer-bar-card)
+- [Vacuum Card](https://github.com/denysdovhan/vacuum-card)
+- [Vertical Stack In Card](https://github.com/ofekashery/vertical-stack-in-card)
+- [Weather Card](https://github.com/bramkragten/weather-card)
+- [Windrose Card](https://github.com/aukedejong/lovelace-windrose-card)
+- [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card)
+
+### Themes
+
+
+***
+
+Generated by the [custom readme integration](https://github.com/custom-components/readme)

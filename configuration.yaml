@@ -39,6 +39,8 @@ expose_camera_stream_source:
 
 wake_on_lan:
 
+readme:
+
 switch:
   - platform: wake_on_lan
     mac: 30:85:a9:94:57:7b
