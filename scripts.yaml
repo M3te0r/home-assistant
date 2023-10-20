@@ -34,3 +34,12 @@ volet_ouvert:
     type: set_position
     position: 100
   mode: single
+shutdown_pc_m3te0r:
+  alias: Shutdown PC M3te0r
+  sequence:
+  - device_id: 2e1f9164409a01338340ee40ec628563
+    domain: button
+    entity_id: ab1e05df9092300c3b1dddf7fe56043f
+    type: press
+  mode: single
+  icon: mdi:desktop-classic

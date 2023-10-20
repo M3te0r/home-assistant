@@ -44,7 +44,10 @@ readme:
 switch:
   - platform: wake_on_lan
     mac: 30:85:a9:94:57:7b
+    host: "192.168.2.2"
     name: WOL M3te0r PC
+    turn_off:
+      service: script.shutdown_pc_m3te0r
   - platform: wake_on_lan
     mac: 00:a0:de:de:2e:a8
     name: WOL Yamaha R-N500

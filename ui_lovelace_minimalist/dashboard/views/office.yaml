@@ -52,3 +52,9 @@ cards:
           ulm_card_light_name: Lampe RGBW Bureau Mathieu
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
+      - type: "custom:button-card"
+        template: "custom_card_vncntdev_device_tracker"
+        entity: switch.wol_m3te0r_pc
+        variables:
+          custom_card_vncntdev_device_tracker_name: "PC"
+          custom_card_vncntdev_device_tracker_status_as_name: true
