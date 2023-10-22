@@ -84,9 +84,6 @@ cards:
         variables:
           ulm_custom_card_esh_room_light_entity_1: light.lumieres_salon_1_lampadaire_canape
           ulm_custom_card_esh_room_light_entity_2: light.ampoule_rgbw_salon
-        state:
-          - value: "off"
-            icon: "mdi:lightbulb"
         label: >
           [[[
             return "🌡️" + states['sensor.capteur_temperaure_humidite_salon_temperature'].state + " °C" + "<br /> 💧" + states['sensor.capteur_temperaure_humidite_salon_humidity'].state + " %"
@@ -135,9 +132,6 @@ cards:
         variables:
           ulm_custom_card_esh_room_light_entity_1: switch.switch_bureau
           ulm_custom_card_esh_room_light_entity_2: light.lampe_rgbw_bureau_pc
-        state:
-          - value: "off"
-            icon: "mdi:lightbulb"
         icon: mdi:office-building
         tap_action:
           action: navigate
