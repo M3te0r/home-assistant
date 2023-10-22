@@ -82,7 +82,7 @@ cards:
           action: navigate
           navigation_path: "living_room"
         variables:
-          ulm_custom_card_esh_room_light_entity_1: light.lampadaire_salon
+          ulm_custom_card_esh_room_light_entity_1: light.lumieres_salon_1_lampadaire_canape
           ulm_custom_card_esh_room_light_entity_2: light.ampoule_rgbw_salon
         state:
           - value: "off"

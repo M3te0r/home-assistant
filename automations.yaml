@@ -36,10 +36,10 @@
         entity_id: device_tracker.m2003j15sc
         type: is_home
     then:
-    - type: turn_on
-      device_id: b50a528b38b49b0e8ee89a8550736b1e
-      entity_id: 77bad382b924c8ada9c18ca80d26b803
-      domain: light
+    - service: light.turn_on
+      data: {}
+      target:
+        entity_id: light.lumieres_salon_1_lampadaire_canape
   - wait_for_trigger:
     - platform: sun
       event: sunset
@@ -223,7 +223,7 @@
     input:
       power_sensor: sensor.prise_lave_linge_power
       starting_threshold: 5
-      starting_hysteresis: 3
+      starting_hysteresis: 4
       finishing_threshold: 1
       actions:
       - service: notify.mobile_app_cph2399
@@ -253,4 +253,22 @@
         data:
           message: "Lessive lancée \U0001F9FC"
           title: Machine goes BRRRRRR
-      finishing_hysteresis: 2
+      finishing_hysteresis: 3
+- id: '1697993151284'
+  alias: Lumières sous lit 2
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      motion_trigger:
+      - binary_sensor.capteur_mouvement_chambre_sol_occupancy
+      light_switch:
+        entity_id: light.ruban_led_rgb_chambre_1
+      time_delay: 0.3
+      include_light_control:
+      - use_brightness
+      - use_transition
+      light_brightness: 8
+      light_colour_temperature: 2600
+      light_transition_on: 5
+      light_transition_off: 10

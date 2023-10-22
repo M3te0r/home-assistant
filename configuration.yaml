@@ -26,7 +26,25 @@ recorder:
       - switch.ruban_led_rgb_pc_backlight_do_not_disturb
       - select.ruban_led_rgb_pc_backlight_color_power_on_behavior
       - media_player.m3te0r
-
+      - select.prise_bureau_serveur_pc_equipements_power_outage_memory
+      - select.prise_bureau_serveur_pc_equipements_indicator_mode
+      - lock.prise_bureau_serveur_pc_equipements_child_lock
+      - update.prise_bureau_serveur_pc_equipements
+      - switch.lampe_rgbw_bureau_pc_do_not_disturb
+      - select.lampe_rgbw_bureau_pc_color_power_on_behavior
+      - switch.prise_bureau_serveur_pc_equipements
+      - sensor.android_bluedroid_free_memory
+      - sensor.prise_lave_linge_power
+      - switch.prise_lave_linge
+      - select.prise_lave_linge_power_outage_memory
+      - select.prise_lave_linge_indicator_mode
+      - lock.prise_lave_linge_child_lock
+      - update.prise_lave_linge
+      - select.prise_2_power_outage_memory
+      - select.prise_2_indicator_mode
+      - lock.prise_2_child_lock
+      - update.prise_2
+      - sensor.android_bluedroid_internal_storage_free_space
 # Text to speech
 tts:
   - platform: google_translate
