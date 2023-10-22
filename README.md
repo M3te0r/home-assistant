@@ -6,8 +6,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 612
-Number of sensors | 329
+Number of entities | 636
+Number of sensors | 337
 
 
 ## My installed extensions:
@@ -25,6 +25,7 @@ Number of sensors | 329
 - Log Viewer
 - Mosquitto broker
 - Node-RED
+- openWakeWord
 - Piper
 - RPC Shutdown
 - SQLite Web
@@ -44,12 +45,16 @@ Number of sensors | 329
 - [HACS](https://github.com/hacs/integration)
 - [Hass.Agent](https://github.com/LAB02-Research/HASS.Agent-Integration)
 - [Hass.Agent Notifier](https://github.com/LAB02-Research/HASS.Agent-Notifier)
+- [Home Assistant Registry](https://github.com/amosyuen/ha-registry)
 - [My Ecowatt By Rte](https://github.com/kamaradclimber/rte-ecowatt)
 - [Node Red Companion](https://github.com/zachowj/hass-node-red)
 - [Opnsense Integration For Home Assistant](https://github.com/travisghansen/hass-opnsense)
 - [Powercalc](https://github.com/bramstroker/homeassistant-powercalc)
+- [Prix Carburant](https://github.com/Aohzan/hass-prixcarburant)
+- [Qr Code Generator](https://github.com/DeerMaximum/QR-Code-Generator)
 - [Retry](https://github.com/amitfin/retry)
 - [Shopping List With Grocy](https://github.com/Anrolosia/Shopping-List-with-Grocy)
+- [Thermal Comfort](https://github.com/dolezsa/thermal_comfort)
 - [Ui Lovelace Minimalist](https://github.com/UI-Lovelace-Minimalist/UI)
 - [Vigieau](https://github.com/kamaradclimber/vigieau)
 - [Watchman](https://github.com/dummylabs/thewatchman)
@@ -94,6 +99,7 @@ Number of sensors | 329
 - [State Switch](https://github.com/thomasloven/lovelace-state-switch)
 - [Sun Card](https://github.com/AitorDB/home-assistant-sun-card)
 - [Swipe Card](https://github.com/bramkragten/swipe-card)
+- [Thermal Comfort Icons](https://github.com/rautesamtr/thermal_comfort_icons)
 - [Timer Bar Card](https://github.com/rianadon/timer-bar-card)
 - [Vacuum Card](https://github.com/denysdovhan/vacuum-card)
 - [Vertical Stack In Card](https://github.com/ofekashery/vertical-stack-in-card)
