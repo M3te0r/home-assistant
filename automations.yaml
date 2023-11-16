@@ -105,41 +105,6 @@
     entity_id: 82de55f8c607126dfd37b8eac710244f
     domain: light
   mode: single
-- id: '1673822043960'
-  alias: Lumière Mouvement Couloir Cuisine-Salon
-  description: ''
-  trigger:
-  - platform: state
-    entity_id:
-    - binary_sensor.capteur_mouvement_1_occupancy
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: sun
-    before: sunrise
-    after: sunset
-    enabled: true
-  action:
-  - type: turn_on
-    device_id: 10426913e21cbe7addfda0fbd154bc5d
-    entity_id: light.ampoule_w_couloir_cuisine_salon
-    domain: light
-  - wait_for_trigger:
-    - platform: state
-      entity_id:
-      - binary_sensor.capteur_mouvement_1_occupancy
-      from: 'on'
-      to: 'off'
-  - delay:
-      hours: 0
-      minutes: 1
-      seconds: 0
-      milliseconds: 0
-  - type: turn_off
-    device_id: 10426913e21cbe7addfda0fbd154bc5d
-    entity_id: light.ampoule_w_couloir_cuisine_salon
-    domain: light
-  mode: single
 - id: '1689715410941'
   alias: Enable/Disable wallpanel charging
   description: ''
@@ -222,9 +187,9 @@
     path: sbyx/notify-or-do-something-when-an-appliance-like-a-dishwasher-or-washing-machine-finishes.yaml
     input:
       power_sensor: sensor.prise_lave_linge_power
-      starting_threshold: 5
+      starting_threshold: 10
       starting_hysteresis: 4
-      finishing_threshold: 1
+      finishing_threshold: 8
       actions:
       - service: notify.mobile_app_cph2399
         data:
@@ -253,9 +218,82 @@
         data:
           message: "Lessive lancée \U0001F9FC"
           title: Machine goes BRRRRRR
-      finishing_hysteresis: 3
-- id: '1697993151284'
-  alias: Lumières sous lit 2
+      finishing_hysteresis: 4
+- id: '1698104816067'
+  alias: Interrupteur salon
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: 5fa2be6378cc51520f7eda3fb986a5a1
+    type: action
+    subtype: single_left
+    discovery_id: 0x54ef441000905c8b action_single_left
+    id: Switch single left
+  - platform: device
+    domain: mqtt
+    device_id: 5fa2be6378cc51520f7eda3fb986a5a1
+    type: action
+    subtype: single_right
+    discovery_id: 0x54ef441000905c8b action_single_right
+    id: Switch single right
+  - platform: device
+    domain: mqtt
+    device_id: 5fa2be6378cc51520f7eda3fb986a5a1
+    type: action
+    subtype: double_right
+    discovery_id: 0x54ef441000905c8b action_double_right
+    id: Switch double right
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - Switch single left
+      sequence:
+      - type: toggle
+        device_id: 2e1de49063ad9eac1c96d4b03de00e5f
+        entity_id: c01083ea11ea1a1504b53075f6477fbd
+        domain: switch
+    - conditions:
+      - condition: trigger
+        id:
+        - Switch single right
+      sequence:
+      - service: light.toggle
+        data: {}
+        target:
+          entity_id: light.lumieres_salon_1_lampadaire_canape
+    - conditions:
+      - condition: trigger
+        id:
+        - Switch double right
+      sequence:
+      - type: toggle
+        device_id: ff95c4db92b2b3b8ddef2b1809c4dc74
+        entity_id: d2c6bb222621973cfe3e9731cf9f0bb0
+        domain: light
+  mode: single
+- id: '1698179412256'
+  alias: 'Scene 1 allume salon '
+  description: ''
+  trigger:
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 1_single
+    discovery_id: 0x84fd27fffec22f47 action_1_single
+  condition: []
+  action:
+  - service: light.toggle
+    data: {}
+    target:
+      entity_id: light.lumieres_salon_1_lampadaire_canape
+  mode: single
+- id: '1700085345446'
+  alias: Ouverture porte d'entrée - Lumières
   description: ''
   use_blueprint:
     path: Blackshome/sensor-light.yaml
@@ -263,12 +301,29 @@
       motion_trigger:
       - binary_sensor.capteur_mouvement_chambre_sol_occupancy
       light_switch:
-        entity_id: light.ruban_led_rgb_chambre_1
-      time_delay: 0.3
-      include_light_control:
-      - use_brightness
-      - use_transition
-      light_brightness: 8
-      light_colour_temperature: 2600
+        entity_id: scene.lumieres_allumee
+      time_delay: 0
       light_transition_on: 5
-      light_transition_off: 10
+      include_light_control:
+      - use_transition
+      light_transition_off: 20
+      end_scenes:
+      - scene.ouverture_porte_entree_lumiere_couloir_eteinte
+      include_sun: sun_enabled
+      sun_elevation: -1.5
+      zone: zone.home
+      people:
+      - person.marie
+      include_device_tracker: zone_people_enabled
+- id: '1700090409115'
+  alias: Lumière Mouvement Couloir Cuisine-Salon2
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      motion_trigger:
+      - binary_sensor.capteur_mouvement_1_occupancy
+      light_switch:
+        entity_id: light.interrupteur_aqara_entree_left
+      time_delay: 1
+      include_sun: sun_enabled

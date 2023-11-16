@@ -35,9 +35,18 @@ cards:
           ulm_card_graph_hours: 24
           ulm_card_graph_group_by: interval
           ulm_card_graph_line_width: 5
+
+  - type: "custom:button-card"
+    template: card_cover
+    entity: cover.volet_salon
+    variables:
+      ulm_card_cover_enable_controls: true
+      ulm_card_cover_enable_slider: true
+      ulm_card_cover_enable_popup: true
+
   - type: "custom:button-card"
     template: card_title
-    name: Devices
+    name: Lumières
 
   - type: horizontal-stack
     cards:
@@ -63,12 +72,8 @@ cards:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
   - type: "custom:button-card"
-    template: card_cover
-    entity: cover.volet_salon
-    variables:
-      ulm_card_cover_enable_controls: true
-      ulm_card_cover_enable_slider: true
-      ulm_card_cover_enable_popup: true
+    template: card_title
+    name: Appareils
 
   - type: "custom:button-card"
     template: card_media_player
@@ -124,16 +129,3 @@ cards:
     variables:
       ulm_card_vacuum_enable_popup: true
       ulm_card_vacuum_camera_toggle: true
-
-  - type: "custom:button-card"
-    template: card_title
-    name: Capteurs
-
-  - type: horizontal-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_binary_sensor_alert
-        variables:
-          ulm_card_binary_sensor_alert: true
-          ulm_show_last_changed: true
-        entity: binary_sensor.roborock_s7_maxv_penurie_d_eau

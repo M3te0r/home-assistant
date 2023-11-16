@@ -11,9 +11,6 @@ cards:
     template: card_title
     name: Réseau
   - type: "custom:button-card"
-    template: custom_chip_myenedis
-    entity: sensor.myenedis_50080550746371
-  - type: "custom:button-card"
     title: Mete0r NAS
     template: "custom_card_nik_nas"
     entity: sensor.mete0r_nas_cpu_load_average_1_min

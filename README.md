@@ -6,8 +6,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 636
-Number of sensors | 337
+Number of entities | 702
+Number of sensors | 362
 
 
 ## My installed extensions:
@@ -37,6 +37,7 @@ Number of sensors | 337
 
 ### Custom integrations
 - [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
+- [Alarmo](https://github.com/nielsfaber/alarmo)
 - [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 - [Candy Simply Fi](https://github.com/ofalvai/home-assistant-candy)
 - [Chroma](https://github.com/Vaskivskyi/ha-chroma)

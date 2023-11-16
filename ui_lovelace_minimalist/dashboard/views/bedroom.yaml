@@ -36,6 +36,18 @@ cards:
           ulm_card_graph_group_by: interval
           ulm_card_graph_line_width: 5
 
+  - type: "custom:button-card"
+    template: card_cover
+    entity: cover.volet_chambre
+    variables:
+      ulm_card_cover_enable_controls: true
+      ulm_card_cover_enable_slider: true
+      ulm_card_cover_enable_popup: true
+
+  - type: "custom:button-card"
+    template: card_title
+    name: Lumières
+
   - type: horizontal-stack
     cards:
       - type: "custom:button-card"
@@ -45,14 +57,3 @@ cards:
           ulm_card_light_name: Lumière
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
-
-  - type: "custom:button-card"
-    template: card_title
-    name: Devices
-  - type: "custom:button-card"
-    template: card_cover
-    entity: cover.volet_chambre
-    variables:
-      ulm_card_cover_enable_controls: true
-      ulm_card_cover_enable_slider: true
-      ulm_card_cover_enable_popup: true

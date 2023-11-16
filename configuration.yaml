@@ -10,7 +10,7 @@ homeassistant:
     - /config
   customize:
     zone.home:
-      radius: 20
+      radius: 70
 
 recorder:
   purge_keep_days: 200
@@ -34,7 +34,6 @@ recorder:
       - select.lampe_rgbw_bureau_pc_color_power_on_behavior
       - switch.prise_bureau_serveur_pc_equipements
       - sensor.android_bluedroid_free_memory
-      - sensor.prise_lave_linge_power
       - switch.prise_lave_linge
       - select.prise_lave_linge_power_outage_memory
       - select.prise_lave_linge_indicator_mode
@@ -45,6 +44,7 @@ recorder:
       - lock.prise_2_child_lock
       - update.prise_2
       - sensor.android_bluedroid_internal_storage_free_space
+
 # Text to speech
 tts:
   - platform: google_translate
