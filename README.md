@@ -4,7 +4,7 @@ This is my Home Assistant installation.
 
 ## Screenshots
 
-<img src="screenshots/home_assistant_dashboard_home.png" alt="image" style="width:35%;height:auto;"/>     <img src="screenshots/home_assistant_dashboard_living_room.png" alt="image" style="width:35%;height:auto;"/>
+<img src="screenshots/home_assistant_dashboard_home2.png" alt="image" style="width:40%;height:auto;"/>     <img src="screenshots/home_assistant_dashboard_living_room.png" alt="image" style="width:40%;height:auto;"/>
 
 ## Some statistics about my installation:
 
