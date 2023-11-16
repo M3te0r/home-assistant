@@ -3,8 +3,8 @@
 This is my Home Assistant installation.
 
 ## Screenshots
-![Home](screenshots/home_assistant_dashboard_home.png)
-![Living Room](screenshots/home_assistant_dashboard_living_room.png)
+<img src="screenshots/home_assistant_dashboard_home.png" alt="image" style="width:20%;height:auto;">
+<img src="screenshots/home_assistant_dashboard_living_room.png" alt="image" style="width:20%;height:auto;">
 
 ## Some statistics about my installation:
 
