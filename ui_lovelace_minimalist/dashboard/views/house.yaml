@@ -1,8 +1,13 @@
-title: "Maison"
-path: "house"
-icon: "mdi:home"
-type: custom:vertical-layout
+type: vertical-stack
 cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-house"
+    #entity: light.interrupteur_aqara_entree_left
+    name: Maison
+    icon: "mdi:home"
+    #state: sensor.capteur_temperaure_humidite_cuisine_temperature
+    back_open: true
   - type: "custom:button-card"
     template: chip_back
     variables:

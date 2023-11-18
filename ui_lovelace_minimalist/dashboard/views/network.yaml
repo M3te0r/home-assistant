@@ -1,12 +1,13 @@
-title: "Réseau"
-path: "network"
-icon: "mdi:wan"
-type: custom:vertical-layout
+type: vertical-stack
 cards:
-  - type: "custom:button-card"
-    template: chip_back
-    variables:
-      ulm_chip_back_path: home
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-network"
+    #entity: light.interrupteur_aqara_entree_left
+    name: Réseau
+    icon: "mdi:wan"
+    #state: sensor.capteur_temperaure_humidite_cuisine_temperature
+    back_open: true
   - type: "custom:button-card"
     template: card_title
     name: Réseau

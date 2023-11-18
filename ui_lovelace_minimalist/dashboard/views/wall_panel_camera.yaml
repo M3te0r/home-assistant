@@ -1,9 +1,13 @@
-title: Wall Panel Camera
-path: camera
-type: panel
-icon: "mdi:camera"
-badges: []
+type: vertical-stack
 cards:
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-camera"
+    #entity: light.interrupteur_aqara_entree_left
+    name: Caméra
+    icon: "mdi:camera"
+    #state: sensor.capteur_temperaure_humidite_cuisine_temperature
+    back_open: true
   - type: picture-entity
     show_state: false
     show_name: false
@@ -11,4 +15,4 @@ cards:
     entity: camera.192_168_2_124_2
     name: Camera
     camera_image: camera.192_168_2_124_2
-    aspect_ratio: 133%
+    aspect_ratio: "180%"

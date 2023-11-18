@@ -6,10 +6,4 @@ theme: "minimalist-desktop"
 background: "var(--background-image)"
 views:
   - !include views/home.yaml
-  - !include views/living_room.yaml
-  - !include views/kitchen.yaml
-  - !include views/bedroom.yaml
-  - !include views/office.yaml
-  - !include views/house.yaml
-  - !include views/network.yaml
-  - !include views/wall_panel_camera.yaml
+

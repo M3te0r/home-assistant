@@ -4,13 +4,15 @@ This is my Home Assistant installation.
 
 ## Screenshots
 
+<img src="screenshots/home_assistant_dashboard.gif" alt="image" style="width:40%;height:auto;"/>
+
 <img src="screenshots/home_assistant_dashboard_home2.png" alt="image" style="width:40%;height:auto;"/>     <img src="screenshots/home_assistant_dashboard_living_room.png" alt="image" style="width:40%;height:auto;"/>
 
 ## Some statistics about my installation:
 
 Description | value
 -- | --
-Number of entities | 702
+Number of entities | 707
 Number of sensors | 362
 
 
@@ -74,6 +76,7 @@ Number of sensors | 362
 - [Battery State Card / Entity Row](https://github.com/maxwroc/battery-state-card)
 - [Big Slider Card](https://github.com/nicufarmache/lovelace-big-slider-card)
 - [Bootstrap Grid Card](https://github.com/ownbee/bootstrap-grid-card)
+- [Bubble Card](https://github.com/Clooos/Bubble-Card)
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Canary](https://github.com/jcwillox/lovelace-canary)
 - [Card Mod](https://github.com/thomasloven/lovelace-card-mod)

@@ -1,12 +1,12 @@
-title: "Salon"
-path: "living_room"
-icon: "mdi:sofa"
-type: custom:vertical-layout
+type: vertical-stack
 cards:
-  - type: "custom:button-card"
-    template: chip_back
-    variables:
-      ulm_chip_back_path: home
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-living-room"
+    entity: light.lumieres_salon
+    name: Salon
+    state: sensor.capteur_temperaure_humidite_salon_temperature
+    back_open: true
   - type: "custom:button-card"
     template: card_title
     name: Salon

@@ -32,7 +32,7 @@ cards:
       ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
       ulm_weather: "weather.bordeaux"
       entity_1:
-        nav: "house"
+        nav: "#pop-up-house"
         icon: "mdi:home"
         name: "House"
         color: "blue"
@@ -41,20 +41,21 @@ cards:
       #   icon: "mdi:lightbulb"
       #   name: "Lights"
       #   color: "yellow"
-      # entity_3:
-      #   nav: "security"
-      #   icon: "mdi:shield"
-      #   name: Secure
-      #   color: "green"
+      entity_3:
+        nav: "#pop-up-camera"
+        # icon: "mdi:shield"
+        icon: "mdi:camera"
+        name: Caméra
+        color: "green"
       # entity_4:
       #   nav: "network"
       #   icon: "mdi:nas"
       #   name: Lab
       #   color: "purple"
       entity_5:
-        nav: "network"
+        nav: "#pop-up-network"
         icon: "mdi:flask"
-        name: Lab
+        name: Réseau
         color: "red"
 
   - type: "horizontal-stack"
@@ -96,7 +97,7 @@ cards:
         icon: mdi:sofa
         tap_action:
           action: navigate
-          navigation_path: "living_room"
+          navigation_path: "#pop-up-living-room"
         variables:
           ulm_custom_card_esh_room_light_entity_1: light.lumieres_salon_1_lampadaire_canape
           ulm_custom_card_esh_room_light_entity_2: light.ampoule_rgbw_salon
@@ -114,7 +115,7 @@ cards:
         icon: mdi:fridge
         tap_action:
           action: navigate
-          navigation_path: "kitchen"
+          navigation_path: "#pop-up-kitchen"
         variables:
           ulm_custom_card_esh_room_light_entity: light.interrupteur_aqara_entree_left
         label: >
@@ -133,7 +134,7 @@ cards:
         icon: mdi:bed-double
         tap_action:
           action: navigate
-          navigation_path: "bedroom"
+          navigation_path: "#pop-up-bedroom"
         label: >
           [[[
             return "🌡️ " + states['sensor.capteur_temperature_humidite_chambre_temperature'].state + " °C" + " 💧 " + states['sensor.capteur_temperature_humidite_chambre_humidity'].state + " %"
@@ -151,7 +152,7 @@ cards:
         icon: mdi:office-building
         tap_action:
           action: navigate
-          navigation_path: "office"
+          navigation_path: "#pop-up-office"
         label: >
           [[[
             return "🌡️" + states['sensor.capteur_temperaure_humidite_bureau_temperature'].state + " °C" + "<br /> 💧" + states['sensor.capteur_temperaure_humidite_bureau_humidity'].state + " %"
@@ -187,3 +188,10 @@ cards:
       - switch.android_bluedroid_screen
       - person.mathieu
       - person.marie
+  - !include bedroom.yaml
+  - !include living_room.yaml
+  - !include office.yaml
+  - !include kitchen.yaml
+  - !include house.yaml
+  - !include network.yaml
+  - !include wall_panel_camera.yaml

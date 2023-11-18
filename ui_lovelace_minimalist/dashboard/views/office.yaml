@@ -1,16 +1,15 @@
-title: "Bureau"
-path: "office"
-icon: "mdi:office-building"
-type: custom:vertical-layout
+type: vertical-stack
 cards:
-  - type: "custom:button-card"
-    template: chip_back
-    variables:
-      ulm_chip_back_path: home
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-office"
+    entity: switch.switch_bureau
+    name: Bureau
+    state: sensor.capteur_temperaure_humidite_bureau_temperature
+    back_open: true
   - type: "custom:button-card"
     template: card_title
     name: Bureau
-
   - type: horizontal-stack
     cards:
       - type: "custom:button-card"

@@ -1,12 +1,12 @@
-title: "Cuisine"
-path: "kitchen"
-icon: "mdi:fridge"
-type: custom:vertical-layout
+type: vertical-stack
 cards:
-  - type: "custom:button-card"
-    template: chip_back
-    variables:
-      ulm_chip_back_path: home
+  - type: custom:bubble-card
+    card_type: pop-up
+    hash: "#pop-up-kitchen"
+    entity: light.interrupteur_aqara_entree_left
+    name: Cuisine
+    state: sensor.capteur_temperaure_humidite_cuisine_temperature
+    back_open: true
   - type: "custom:button-card"
     template: card_title
     name: Cuisine
@@ -43,7 +43,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_light
-        entity: light.ampoule_w_couloir_cuisine_salon
+        entity: light.interrupteur_aqara_entree_left
         variables:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true

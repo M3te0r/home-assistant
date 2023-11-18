@@ -327,3 +327,50 @@
         entity_id: light.interrupteur_aqara_entree_left
       time_delay: 1
       include_sun: sun_enabled
+- id: '1700176345431'
+  alias: La balise Alarme NFC est analysée
+  description: ''
+  trigger:
+  - platform: tag
+    tag_id: 56ba0b06-35f3-45e9-a2e0-914eb485f25b
+  condition: []
+  action:
+  - service: alarm_control_panel.alarm_disarm
+    data:
+      code: '1127'
+    target:
+      device_id: 44e2b6977448b5f2e973c5bd39d8e08d
+  - service: alarm_control_panel.alarm_arm_home
+    data:
+      code: '1127'
+    target:
+      device_id: 44e2b6977448b5f2e973c5bd39d8e08d
+  mode: single
+- id: '1700178023441'
+  alias: Allumer Bureau Matin
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:30:00
+  condition:
+  - condition: time
+    weekday:
+    - mon
+    - tue
+    - wed
+    - thu
+    - fri
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.wol_thinkpad_mathieu
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.wol_m3te0r_pc
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.switch_bureau
+  mode: single
