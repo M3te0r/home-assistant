@@ -1,6 +1,6 @@
 type: vertical-stack
 cards:
-  - type: custom:bubble-card
+  - type: custom:bubble-pop-up
     card_type: pop-up
     hash: "#pop-up-camera"
     #entity: light.interrupteur_aqara_entree_left
