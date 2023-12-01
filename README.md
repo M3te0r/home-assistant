@@ -12,8 +12,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 707
-Number of sensors | 362
+Number of entities | 759
+Number of sensors | 407
 
 
 ## My installed extensions:
