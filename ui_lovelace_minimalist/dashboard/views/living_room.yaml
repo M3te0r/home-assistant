@@ -1,6 +1,6 @@
 type: vertical-stack
 cards:
-  - type: custom:bubble-pop-up
+  - type: custom:bubble-card
     card_type: pop-up
     hash: "#pop-up-living-room"
     entity: light.lumieres_salon
@@ -122,6 +122,21 @@ cards:
   #     - locate
   #     - return_home
   #   fill_container: false
+  - type: custom:vacuum-card
+    entity: vacuum.roborock_s7_maxv
+    stats:
+      default:
+        - entity_id: binary_sensor.roborock_s7_maxv_penurie_d_eau
+          subtitle: Pénurie d'eau
+          value_template: '{{ "Non" if value == "off" else "Oui"}}'
+        - entity_id: sensor.roborock_s7_maxv_nettoyage_en_cours
+          unit: "%"
+          subtitle: Nettoyage en cours
+        - entity_id: sensor.roborock_s7_maxv_last_clean_begin
+          subtitle: Dernier nettoyage
+          value_template: >-
+            {{ relative_time((states("sensor.roborock_s7_maxv_last_clean_begin") |
+            as_datetime )) }}
 
   - type: "custom:button-card"
     template: card_vacuum

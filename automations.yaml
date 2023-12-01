@@ -316,17 +316,26 @@
       - person.marie
       include_device_tracker: zone_people_enabled
 - id: '1700090409115'
-  alias: Lumière Mouvement Couloir Cuisine-Salon2
+  alias: Lumière Mouvement Couloir Cuisine-Salon
   description: ''
   use_blueprint:
     path: Blackshome/sensor-light.yaml
     input:
       motion_trigger:
-      - binary_sensor.capteur_mouvement_1_occupancy
+      - binary_sensor.capteur_mouvement_entree_aqara_occupancy
       light_switch:
         entity_id: light.interrupteur_aqara_entree_left
-      time_delay: 1
+      time_delay: 2
       include_sun: sun_enabled
+      ambient_light_options: ambient_light_option_enabled
+      ambient_light_sensor: sensor.capteur_mouvement_entree_aqara_illuminance_lux
+      ambient_light_value: 10
+      include_ambient: ambient_enabled
+      ambient_light_high_value: 70
+      motion_bypass_lights_off:
+      - input_boolean.killswitch_entree_mouvement_lumiere
+      include_bypass:
+      - bypass_enabled_turn_off
 - id: '1700176345431'
   alias: La balise Alarme NFC est analysée
   description: ''

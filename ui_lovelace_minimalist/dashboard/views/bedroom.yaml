@@ -1,6 +1,6 @@
 type: vertical-stack
 cards:
-  - type: custom:bubble-pop-up
+  - type: custom:bubble-card
     card_type: pop-up
     hash: "#pop-up-bedroom"
     entity: light.lampe_rgbw_bureau_pc

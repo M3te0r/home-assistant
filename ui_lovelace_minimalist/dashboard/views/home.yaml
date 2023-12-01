@@ -24,6 +24,12 @@ cards:
         icon: ""
         tap_action:
           action: more-info
+      - type: entity
+        entity: input_boolean.killswitch_entree_mouvement_lumiere
+        content_info: name
+        name: KS Entrée
+        use_entity_picture: false
+        icon: mdi:track-light-off
     alignment: center
   - type: "custom:button-card"
     template: "card_esh_welcome"
@@ -137,7 +143,7 @@ cards:
           navigation_path: "#pop-up-bedroom"
         label: >
           [[[
-            return "🌡️ " + states['sensor.capteur_temperature_humidite_chambre_temperature'].state + " °C" + " 💧 " + states['sensor.capteur_temperature_humidite_chambre_humidity'].state + " %"
+            return "🌡️" + states['sensor.capteur_temperature_humidite_chambre_temperature'].state + " °C" + "<br /> 💧" + states['sensor.capteur_temperature_humidite_chambre_humidity'].state + " %"
           ]]]
       ###### Bureau ######
       - type: "custom:button-card"

@@ -1,6 +1,6 @@
 type: vertical-stack
 cards:
-  - type: custom:bubble-pop-up
+  - type: custom:bubble-card
     card_type: pop-up
     hash: "#pop-up-kitchen"
     entity: light.interrupteur_aqara_entree_left
@@ -10,7 +10,15 @@ cards:
   - type: "custom:button-card"
     template: card_title
     name: Cuisine
-
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: entity
+        entity: input_boolean.killswitch_entree_mouvement_lumiere
+        content_info: name
+        name: KS Entrée
+        use_entity_picture: false
+        icon: mdi:track-light-off
+    alignment: center
   - type: horizontal-stack
     cards:
       - type: "custom:button-card"
