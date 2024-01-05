@@ -18,6 +18,19 @@ cards:
         name: KS Entrée
         use_entity_picture: false
         icon: mdi:track-light-off
+      - type: template
+        content: >-
+          {{ expand ("light.interrupteur_aqara_entree_left")  | rejectattr("state", "eq", "off") |
+          list | count }}
+        icon_color: >-
+          {% if ((expand ("light.interrupteur_aqara_entree_left")  | rejectattr("state", "eq",
+          "off") | list | count) > 0) %}
+            amber
+          {% else %}
+            gray
+          {% endif %}
+        icon: mdi:lightbulb-group
+        entity: light.interrupteur_aqara_entree_left
     alignment: center
   - type: horizontal-stack
     cards:

@@ -44,12 +44,20 @@
     - platform: sun
       event: sunset
       offset: +00:20:00
-  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
-    domain: cover
-    entity_id: cover.volet_salon
-    type: set_position
-    position: 0
-    enabled: true
+  - choose:
+    - conditions:
+      - type: is_not_open
+        condition: device
+        device_id: e03ae85517aea2b552940cb0ad4aa858
+        entity_id: 0c423dce809f9b3baec8b7e45b61e013
+        domain: binary_sensor
+      sequence:
+      - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+        domain: cover
+        entity_id: cover.volet_salon
+        type: set_position
+        position: 0
+        enabled: true
   mode: single
 - id: '1673739340001'
   alias: Allumer PC Backlight
@@ -276,7 +284,7 @@
         domain: light
   mode: single
 - id: '1698179412256'
-  alias: 'Scene 1 allume salon '
+  alias: Scene Switch Salon
   description: ''
   trigger:
   - platform: device
@@ -285,36 +293,202 @@
     type: action
     subtype: 1_single
     discovery_id: 0x84fd27fffec22f47 action_1_single
+    id: 1 single
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 1_hold
+    discovery_id: 0x84fd27fffec22f47 action_1_hold
+    id: 1 hold
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 1_double
+    discovery_id: 0x84fd27fffec22f47 action_1_double
+    id: 1 double
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 3_single
+    discovery_id: 0x84fd27fffec22f47 action_3_single
+    id: 3 single
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 3_double
+    discovery_id: 0x84fd27fffec22f47 action_3_double
+    id: 3 double
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 2_single
+    discovery_id: 0x84fd27fffec22f47 action_2_single
+    id: 2 single
+  - platform: device
+    domain: mqtt
+    device_id: db5f32646e7214ce5c77c956ccacc519
+    type: action
+    subtype: 2_double
+    discovery_id: 0x84fd27fffec22f47 action_2_double
+    id: 2 double
   condition: []
   action:
-  - service: light.toggle
-    data: {}
-    target:
-      entity_id: light.lumieres_salon_1_lampadaire_canape
+  - choose:
+    - conditions:
+      - condition: trigger
+        id:
+        - 1 single
+      sequence:
+      - service: light.toggle
+        data: {}
+        target:
+          entity_id: light.lumieres_salon_1_lampadaire_canape
+    - conditions:
+      - condition: trigger
+        id:
+        - 1 double
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.ampoule_rgbw_salon
+            state: 'on'
+          sequence:
+          - service: light.turn_off
+            target:
+              entity_id: light.lumieres_salon
+            data: {}
+        - conditions:
+          - condition: state
+            entity_id: light.lumieres_salon_1_lampadaire_canape
+            state: 'on'
+          sequence:
+          - service: light.turn_on
+            target:
+              entity_id:
+              - light.lumieres_salon
+              device_id: []
+              area_id: []
+            data: {}
+        - conditions:
+          - condition: state
+            entity_id: light.lumieres_salon
+            state: 'off'
+          sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.lumieres_salon
+            data: {}
+    - conditions:
+      - condition: trigger
+        id:
+        - 3 single
+      sequence:
+      - choose:
+        - conditions:
+          - condition: device
+            device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+            domain: cover
+            entity_id: 7f146a382611f1c8fc8de2d3d5451a55
+            type: is_open
+          sequence:
+          - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+            domain: cover
+            entity_id: 7f146a382611f1c8fc8de2d3d5451a55
+            type: close
+        - conditions:
+          - condition: or
+            conditions:
+            - condition: state
+              entity_id: cover.volet_salon
+              state: closing
+            - condition: state
+              entity_id: cover.volet_salon
+              state: opening
+          sequence:
+          - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+            domain: cover
+            entity_id: 7f146a382611f1c8fc8de2d3d5451a55
+            type: stop
+    - conditions:
+      - condition: trigger
+        id:
+        - 3 double
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: cover.volet_salon
+            state: opening
+          sequence:
+          - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+            domain: cover
+            entity_id: 7f146a382611f1c8fc8de2d3d5451a55
+            type: stop
+        - conditions: []
+          sequence:
+          - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
+            domain: cover
+            entity_id: 7f146a382611f1c8fc8de2d3d5451a55
+            type: open
+    - conditions:
+      - condition: trigger
+        id:
+        - 2 single
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.ampoule_rgbw_salon
+            state: 'on'
+          sequence:
+          - service: light.turn_on
+            data:
+              brightness_step: 20
+            target:
+              entity_id: light.lumieres_salon
+        - conditions:
+          - condition: state
+            entity_id: light.lumieres_salon_1_lampadaire_canape
+            state: 'on'
+          sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.lumieres_salon_1_lampadaire_canape
+            data:
+              brightness_step: 20
+    - conditions:
+      - condition: trigger
+        id:
+        - 2 double
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.ampoule_rgbw_salon
+            state: 'on'
+          sequence:
+          - service: light.turn_on
+            data:
+              brightness_step: -20
+            target:
+              entity_id: light.lumieres_salon
+        - conditions:
+          - condition: state
+            entity_id: light.lumieres_salon_1_lampadaire_canape
+            state: 'on'
+          sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.lumieres_salon_1_lampadaire_canape
+            data:
+              brightness_step: -20
   mode: single
-- id: '1700085345446'
-  alias: Ouverture porte d'entrée - Lumières
-  description: ''
-  use_blueprint:
-    path: Blackshome/sensor-light.yaml
-    input:
-      motion_trigger:
-      - binary_sensor.capteur_mouvement_chambre_sol_occupancy
-      light_switch:
-        entity_id: scene.lumieres_allumee
-      time_delay: 0
-      light_transition_on: 5
-      include_light_control:
-      - use_transition
-      light_transition_off: 20
-      end_scenes:
-      - scene.ouverture_porte_entree_lumiere_couloir_eteinte
-      include_sun: sun_enabled
-      sun_elevation: -1.5
-      zone: zone.home
-      people:
-      - person.marie
-      include_device_tracker: zone_people_enabled
 - id: '1700090409115'
   alias: Lumière Mouvement Couloir Cuisine-Salon
   description: ''
@@ -383,3 +557,159 @@
     target:
       entity_id: light.switch_bureau
   mode: single
+- id: '1702252035251'
+  alias: Low battery level detection & notification for all battery sensors
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      actions:
+      - service: notify.m3te0r
+        data:
+          title: "\U0001FAAB Batteries faibles"
+          message: 'Alerte batterie faible pour les appareils:
+
+            {{sensors|replace(", ", "\n")}}'
+      - service: notify.mobile_app_cph2399
+        data:
+          title: "\U0001FAAB Batteries faibles"
+          message: 'Alerte batterie faible pour les appareils:
+
+            {{sensors|replace(", ", "\n")}}'
+      threshold: 40
+      time: '10:00:00'
+- id: '1702336916849'
+  alias: Unavailable entity detection & notification
+  description: ''
+  use_blueprint:
+    path: gmlupatelli/unavailable_entities_notification.yaml
+    input:
+      actions:
+      - service: notify.mobile_app_cph2399
+        data:
+          message: '{{entities}}'
+      exclude:
+        entity_id:
+        - sensor.m3te0r_charge_cpu
+        - sensor.m3te0r_temperature_gpu
+        - sensor.m3te0r_stockage_c
+        - sensor.m3te0r_stockage_e
+        - sensor.m3te0r_stockage_total_disk_count
+        - sensor.m3te0r_memory_used
+        - sensor.m3te0r_screen_state
+        - sensor.m3te0r_session_state
+        - sensor.m3te0r_last_changed_system_state
+        - sensor.m3te0r_last_boot
+        - sensor.m3te0r_affichage_display_count
+        - sensor.m3te0r_affichage_primary_display
+        - sensor.m3te0r_affichage_display1
+        - sensor.m3te0r_affichage_display2
+        - sensor.m3te0r_affichage_windisc
+        - sensor.m3te0r_affichage_display6
+        - sensor.m3te0r_affichage_display7
+        - sensor.m3te0r_stockage_g
+        - sensor.m3te0r_affichage_display5
+        - button.m3te0r_m3te0r_pc_shutdown
+        - button.m3te0r_m3te0r_pc_reboot
+        - button.m3te0r_m3te0r_pc_lock
+- id: '1704465042095'
+  alias: Test auto bureau presence
+  description: ''
+  trigger:
+  - type: occupied
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: a45042c6d5d9888d5170afbb54e6d154
+    domain: binary_sensor
+    id: presence_on
+  - type: not_occupied
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: a45042c6d5d9888d5170afbb54e6d154
+    domain: binary_sensor
+    id: presence_off
+  - type: distance
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: 9578598ef69b1dba0864e78ed2fb5972
+    domain: sensor
+    id: approche bureau
+    below: 230
+  - type: distance
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: 9578598ef69b1dba0864e78ed2fb5972
+    domain: sensor
+    id: sortie bureau
+    above: 230
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - type: is_value
+          condition: device
+          device_id: 507e363b8b5bd2066bf744b7ed2d8c31
+          entity_id: 52bb99dd1c1a1183285ea3e00cd6b3e2
+          domain: sensor
+          below: -1
+        - condition: trigger
+          id:
+          - presence_on
+      sequence:
+      - type: turn_on
+        device_id: 53552760c1c406130f77d8044950f639
+        entity_id: 584126639151fb0fa3d38d455995d128
+        domain: light
+    - conditions:
+      - condition: trigger
+        id:
+        - presence_off
+      sequence:
+      - type: toggle
+        device_id: 53552760c1c406130f77d8044950f639
+        entity_id: 584126639151fb0fa3d38d455995d128
+        domain: light
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id:
+          - approche bureau
+        - type: is_occupied
+          condition: device
+          device_id: 14cd7cd073db33d37ed458ab2dcc2773
+          entity_id: a45042c6d5d9888d5170afbb54e6d154
+          domain: binary_sensor
+      sequence:
+      - type: turn_on
+        device_id: 34c58297351f66716de9a7b5038ace8f
+        entity_id: 720dc4f94c87c9ece94c02060b59aecd
+        domain: light
+        enabled: false
+    - conditions:
+      - condition: or
+        conditions:
+        - type: is_not_occupied
+          condition: device
+          device_id: 14cd7cd073db33d37ed458ab2dcc2773
+          entity_id: a45042c6d5d9888d5170afbb54e6d154
+          domain: binary_sensor
+        - condition: and
+          conditions:
+          - condition: trigger
+            id:
+            - sortie bureau
+          - type: is_occupied
+            condition: device
+            device_id: 14cd7cd073db33d37ed458ab2dcc2773
+            entity_id: a45042c6d5d9888d5170afbb54e6d154
+            domain: binary_sensor
+      sequence:
+      - type: turn_off
+        device_id: 34c58297351f66716de9a7b5038ace8f
+        entity_id: 720dc4f94c87c9ece94c02060b59aecd
+        domain: light
+  mode: queued
+  max: 10

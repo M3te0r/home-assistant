@@ -12,8 +12,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 759
-Number of sensors | 407
+Number of entities | 921
+Number of sensors | 472
 
 
 ## My installed extensions:
@@ -24,6 +24,7 @@ Number of sensors | 407
 - Barcode Buddy for Grocy
 - CEC Scanner
 - diyHue
+- ESPHome
 - Git pull
 - Glances
 - Grocy
@@ -53,9 +54,11 @@ Number of sensors | 407
 - [Hass.Agent](https://github.com/LAB02-Research/HASS.Agent-Integration)
 - [Hass.Agent Notifier](https://github.com/LAB02-Research/HASS.Agent-Notifier)
 - [Home Assistant Registry](https://github.com/amosyuen/ha-registry)
+- [Inverse](https://github.com/disforw/inverse)
 - [My Ecowatt By Rte](https://github.com/kamaradclimber/rte-ecowatt)
 - [Node Red Companion](https://github.com/zachowj/hass-node-red)
 - [Opnsense Integration For Home Assistant](https://github.com/travisghansen/hass-opnsense)
+- [Places](https://github.com/custom-components/places)
 - [Powercalc](https://github.com/bramstroker/homeassistant-powercalc)
 - [Prix Carburant](https://github.com/Aohzan/hass-prixcarburant)
 - [Qr Code Generator](https://github.com/DeerMaximum/QR-Code-Generator)
@@ -85,6 +88,7 @@ Number of sensors | 407
 - [Energy Period Selector Plus](https://github.com/flixlix/energy-period-selector-plus)
 - [Fluid Level Background Card](https://github.com/swingerman/lovelace-fluid-level-background-card)
 - [Fold Entity Row](https://github.com/thomasloven/lovelace-fold-entity-row)
+- [Ha Floorplan 🖌🎨   Your Imagination Just Become The New Limit](https://github.com/ExperienceLovelace/ha-floorplan)
 - [Hass Hue Icons](https://github.com/arallsopp/hass-hue-icons)
 - [History Explorer Card](https://github.com/alexarch21/history-explorer-card)
 - [Hourly Weather Card](https://github.com/decompil3d/lovelace-hourly-weather)

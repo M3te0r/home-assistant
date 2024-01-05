@@ -30,6 +30,19 @@ cards:
         name: KS Entrée
         use_entity_picture: false
         icon: mdi:track-light-off
+      - type: template
+        content: >-
+          {{ expand ("light.toutes_les_lumieres")  | rejectattr("state", "eq", "off") |
+          list | count }}
+        icon_color: >-
+          {% if ((expand ("light.toutes_les_lumieres")  | rejectattr("state", "eq",
+          "off") | list | count) > 0) %}
+            amber
+          {% else %}
+            gray
+          {% endif %}
+        icon: mdi:lightbulb-group
+        entity: light.toutes_les_lumieres
     alignment: center
   - type: "custom:button-card"
     template: "card_esh_welcome"
@@ -181,11 +194,12 @@ cards:
     entities:
       - switch.prise_lave_linge
       - light.ampoule_rgbw_salon
-      - binary_sensor.capteur_mouvement_1_occupancy
+      - binary_sensor.capteur_mouvement_entree_aqara_occupancy
       - binary_sensor.capteur_mouvement_salon_occupancy
       - light.switch_bureau
       - light.switch_chambre
       - light.ampoule_w_couloir_cuisine_salon
+      - light.interrupteur_aqara_entree_left
       - cover.volet_salon
       - cover.volet_chambre
       - vacuum.roborock_s7_maxv
