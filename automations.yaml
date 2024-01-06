@@ -622,6 +622,7 @@
     entity_id: a45042c6d5d9888d5170afbb54e6d154
     domain: binary_sensor
     id: presence_on
+    enabled: true
   - type: not_occupied
     platform: device
     device_id: 14cd7cd073db33d37ed458ab2dcc2773
@@ -642,21 +643,32 @@
     domain: sensor
     id: sortie bureau
     above: 230
+  - type: present
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: 9ec6a7a7a5a7856eb17358a544995e84
+    domain: binary_sensor
+    id: presence with gpio out + light
   condition: []
   action:
   - choose:
     - conditions:
-      - condition: and
+      - condition: or
         conditions:
-        - type: is_value
-          condition: device
-          device_id: 507e363b8b5bd2066bf744b7ed2d8c31
-          entity_id: 52bb99dd1c1a1183285ea3e00cd6b3e2
-          domain: sensor
-          below: -1
         - condition: trigger
           id:
-          - presence_on
+          - presence with gpio out + light
+        - condition: and
+          conditions:
+          - type: is_value
+            condition: device
+            device_id: 507e363b8b5bd2066bf744b7ed2d8c31
+            entity_id: 52bb99dd1c1a1183285ea3e00cd6b3e2
+            domain: sensor
+            below: -1
+          - condition: trigger
+            id:
+            - presence_on
       sequence:
       - type: turn_on
         device_id: 53552760c1c406130f77d8044950f639
@@ -667,7 +679,7 @@
         id:
         - presence_off
       sequence:
-      - type: toggle
+      - type: turn_off
         device_id: 53552760c1c406130f77d8044950f639
         entity_id: 584126639151fb0fa3d38d455995d128
         domain: light
@@ -712,4 +724,4 @@
         entity_id: 720dc4f94c87c9ece94c02060b59aecd
         domain: light
   mode: queued
-  max: 10
+  max: 12

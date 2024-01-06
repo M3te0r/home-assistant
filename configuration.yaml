@@ -16,7 +16,7 @@ homeassistant:
       radius: 60
 
 recorder:
-  purge_keep_days: 90
+  purge_keep_days: 60
   exclude:
     entities:
       - climate.thermostat
@@ -154,10 +154,6 @@ http:
     - 192.168.2.125
 
 bluetooth:
-
-fastdotcom:
-  scan_interval:
-    hours: 12
 
 powercalc:
 
