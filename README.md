@@ -12,8 +12,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 921
-Number of sensors | 472
+Number of entities | 928
+Number of sensors | 473
 
 
 ## My installed extensions:
@@ -45,9 +45,11 @@ Number of sensors | 472
 ### Custom integrations
 - [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
 - [Alarmo](https://github.com/nielsfaber/alarmo)
+- [Attributes Extractor](https://github.com/pilotak/homeassistant-attributes)
 - [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 - [Candy Simply Fi](https://github.com/ofalvai/home-assistant-candy)
 - [Chroma](https://github.com/Vaskivskyi/ha-chroma)
+- [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting)
 - [Expose Camera Stream Source](https://github.com/felipecrs/hass-expose-camera-stream-source)
 - [Generate Readme](https://github.com/custom-components/readme)
 - [HACS](https://github.com/hacs/integration)
@@ -55,6 +57,7 @@ Number of sensors | 472
 - [Hass.Agent Notifier](https://github.com/LAB02-Research/HASS.Agent-Notifier)
 - [Home Assistant Registry](https://github.com/amosyuen/ha-registry)
 - [Inverse](https://github.com/disforw/inverse)
+- [Measureit](https://github.com/danieldotnl/ha-measureit)
 - [My Ecowatt By Rte](https://github.com/kamaradclimber/rte-ecowatt)
 - [Node Red Companion](https://github.com/zachowj/hass-node-red)
 - [Opnsense Integration For Home Assistant](https://github.com/travisghansen/hass-opnsense)
@@ -120,6 +123,7 @@ Number of sensors | 472
 - [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card)
 
 ### Themes
+- [Mushroom Themes](https://github.com/piitaya/lovelace-mushroom-themes)
 
 
 ***

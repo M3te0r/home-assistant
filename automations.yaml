@@ -529,34 +529,6 @@
     target:
       device_id: 44e2b6977448b5f2e973c5bd39d8e08d
   mode: single
-- id: '1700178023441'
-  alias: Allumer Bureau Matin
-  description: ''
-  trigger:
-  - platform: time
-    at: 09:30:00
-  condition:
-  - condition: time
-    weekday:
-    - mon
-    - tue
-    - wed
-    - thu
-    - fri
-  action:
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.wol_thinkpad_mathieu
-  - service: switch.turn_on
-    data: {}
-    target:
-      entity_id: switch.wol_m3te0r_pc
-  - service: light.turn_on
-    data: {}
-    target:
-      entity_id: light.switch_bureau
-  mode: single
 - id: '1702252035251'
   alias: Low battery level detection & notification for all battery sensors
   description: ''
@@ -613,7 +585,7 @@
         - button.m3te0r_m3te0r_pc_reboot
         - button.m3te0r_m3te0r_pc_lock
 - id: '1704465042095'
-  alias: Test auto bureau presence
+  alias: Présence Bureau
   description: ''
   trigger:
   - type: occupied
@@ -649,6 +621,12 @@
     entity_id: 9ec6a7a7a5a7856eb17358a544995e84
     domain: binary_sensor
     id: presence with gpio out + light
+  - type: not_present
+    platform: device
+    device_id: 14cd7cd073db33d37ed458ab2dcc2773
+    entity_id: 9ec6a7a7a5a7856eb17358a544995e84
+    domain: binary_sensor
+    id: presence off with gpio out + light
   condition: []
   action:
   - choose:

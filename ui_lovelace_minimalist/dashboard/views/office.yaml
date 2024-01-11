@@ -3,13 +3,29 @@ cards:
   - type: custom:bubble-card
     card_type: pop-up
     hash: "#pop-up-office"
-    entity: switch.switch_bureau
+    entity: light.lumieres_bureau
     name: Bureau
     state: sensor.capteur_temperaure_humidite_bureau_temperature
     back_open: true
   - type: "custom:button-card"
     template: card_title
     name: Bureau
+  - type: custom:mushroom-chips-card
+    chips:
+      - type: template
+        content: >-
+          {{ expand ("light.lumieres_bureau")  | rejectattr("state", "eq", "off") |
+          list | count }}
+        icon_color: >-
+          {% if ((expand ("light.lumieres_bureau")  | rejectattr("state", "eq",
+          "off") | list | count) > 0) %}
+            amber
+          {% else %}
+            gray
+          {% endif %}
+        icon: mdi:lightbulb-group
+        entity: light.lumieres_bureau
+    alignment: center
   - type: horizontal-stack
     cards:
       - type: "custom:button-card"
@@ -48,11 +64,31 @@ cards:
           ulm_card_light_name: Lumière
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
+
+  - type: "custom:button-card"
+    template: card_title
+    name: Bureau Mathieu
+  - type: horizontal-stack
+    cards:
       - type: "custom:button-card"
         template: card_light
         entity: light.lampe_rgbw_bureau_pc
         variables:
           ulm_card_light_name: Lampe RGBW Bureau Mathieu
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.ruban_led_rgb_sous_bureau
+        variables:
+          ulm_card_light_name: Ruban LED RGB Bureeau
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.ruban_led_rgb_pc_backlight
+        variables:
+          ulm_card_light_name: Ruban LED RGB PC Backlight
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
 
