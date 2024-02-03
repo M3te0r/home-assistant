@@ -127,16 +127,18 @@ cards:
       ###### CUISINE ######
       - type: "custom:button-card"
         template:
-          - card_esh_room
+          - card_esh_room_lights
           - yellow_on
         name: Cuisine
-        entity: light.interrupteur_aqara_entree_left
+        entity: light.lumieres_cuisine
         icon: mdi:fridge
         tap_action:
           action: navigate
           navigation_path: "#pop-up-kitchen"
         variables:
-          ulm_custom_card_esh_room_light_entity: light.interrupteur_aqara_entree_left
+          ulm_custom_card_esh_room_light_entity_1: light.interrupteur_aqara_entree_left
+          ulm_custom_card_esh_room_light_entity_2: light.switch_cuisine_plafonnier
+
         label: >
           [[[
             return "🌡️" + states['sensor.capteur_temperaure_humidite_cuisine_temperature'].state + " °C" + "<br /> 💧" + states['sensor.capteur_temperaure_humidite_cuisine_humidity'].state + " %"

@@ -12,8 +12,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 928
-Number of sensors | 473
+Number of entities | 1134
+Number of sensors | 600
 
 
 ## My installed extensions:
@@ -25,6 +25,7 @@ Number of sensors | 473
 - CEC Scanner
 - diyHue
 - ESPHome
+- Fusion
 - Git pull
 - Glances
 - Grocy
@@ -46,20 +47,25 @@ Number of sensors | 473
 - [Adaptive Lighting](https://github.com/basnijholt/adaptive-lighting)
 - [Alarmo](https://github.com/nielsfaber/alarmo)
 - [Attributes Extractor](https://github.com/pilotak/homeassistant-attributes)
+- [Better Thermostat](https://github.com/KartoffelToby/better_thermostat)
 - [Browser Mod](https://github.com/thomasloven/hass-browser_mod)
 - [Candy Simply Fi](https://github.com/ofalvai/home-assistant-candy)
 - [Chroma](https://github.com/Vaskivskyi/ha-chroma)
 - [Circadian Lighting](https://github.com/claytonjn/hass-circadian_lighting)
 - [Expose Camera Stream Source](https://github.com/felipecrs/hass-expose-camera-stream-source)
+- [Feedparser](https://github.com/custom-components/feedparser)
 - [Generate Readme](https://github.com/custom-components/readme)
 - [HACS](https://github.com/hacs/integration)
 - [Hass.Agent](https://github.com/LAB02-Research/HASS.Agent-Integration)
 - [Hass.Agent Notifier](https://github.com/LAB02-Research/HASS.Agent-Notifier)
+- [Home Assistant Plant](https://github.com/Olen/homeassistant-plant)
 - [Home Assistant Registry](https://github.com/amosyuen/ha-registry)
 - [Inverse](https://github.com/disforw/inverse)
 - [Measureit](https://github.com/danieldotnl/ha-measureit)
 - [My Ecowatt By Rte](https://github.com/kamaradclimber/rte-ecowatt)
 - [Node Red Companion](https://github.com/zachowj/hass-node-red)
+- [Openplantbook](https://github.com/Olen/home-assistant-openplantbook)
+- [Openrgb](https://github.com/koying/openrgb_ha)
 - [Opnsense Integration For Home Assistant](https://github.com/travisghansen/hass-opnsense)
 - [Places](https://github.com/custom-components/places)
 - [Powercalc](https://github.com/bramstroker/homeassistant-powercalc)
@@ -67,6 +73,8 @@ Number of sensors | 473
 - [Qr Code Generator](https://github.com/DeerMaximum/QR-Code-Generator)
 - [Retry](https://github.com/amitfin/retry)
 - [Shopping List With Grocy](https://github.com/Anrolosia/Shopping-List-with-Grocy)
+- [Spook 👻 Not Your Homie](https://github.com/frenck/spook)
+- [Switch Manager](https://github.com/Sian-Lee-SA/Home-Assistant-Switch-Manager)
 - [Thermal Comfort](https://github.com/dolezsa/thermal_comfort)
 - [Ui Lovelace Minimalist](https://github.com/UI-Lovelace-Minimalist/UI)
 - [Vigieau](https://github.com/kamaradclimber/vigieau)
@@ -80,12 +88,14 @@ Number of sensors | 473
 - [Banner Card](https://github.com/nervetattoo/banner-card)
 - [Bar Card](https://github.com/custom-cards/bar-card)
 - [Battery State Card / Entity Row](https://github.com/maxwroc/battery-state-card)
+- [Better Thermostat Ui](https://github.com/KartoffelToby/better-thermostat-ui-card)
 - [Big Slider Card](https://github.com/nicufarmache/lovelace-big-slider-card)
 - [Bootstrap Grid Card](https://github.com/ownbee/bootstrap-grid-card)
 - [Bubble Card](https://github.com/Clooos/Bubble-Card)
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Canary](https://github.com/jcwillox/lovelace-canary)
 - [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
+- [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Collapsable Cards](https://github.com/RossMcMillan92/lovelace-collapsable-cards)
 - [Energy Entity Row](https://github.com/zeronounours/lovelace-energy-entity-row)
 - [Energy Period Selector Plus](https://github.com/flixlix/energy-period-selector-plus)

@@ -3,7 +3,7 @@ cards:
   - type: custom:bubble-card
     card_type: pop-up
     hash: "#pop-up-kitchen"
-    entity: light.interrupteur_aqara_entree_left
+    entity: light.lumieres_cuisine
     name: Cuisine
     state: sensor.capteur_temperaure_humidite_cuisine_temperature
     back_open: true
@@ -20,17 +20,17 @@ cards:
         icon: mdi:track-light-off
       - type: template
         content: >-
-          {{ expand ("light.interrupteur_aqara_entree_left")  | rejectattr("state", "eq", "off") |
+          {{ expand ("light.lumieres_cuisine")  | rejectattr("state", "eq", "off") |
           list | count }}
         icon_color: >-
-          {% if ((expand ("light.interrupteur_aqara_entree_left")  | rejectattr("state", "eq",
+          {% if ((expand ("light.lumieres_cuisine")  | rejectattr("state", "eq",
           "off") | list | count) > 0) %}
             amber
           {% else %}
             gray
           {% endif %}
         icon: mdi:lightbulb-group
-        entity: light.interrupteur_aqara_entree_left
+        entity: light.lumieres_cuisine
     alignment: center
   - type: horizontal-stack
     cards:
@@ -65,6 +65,12 @@ cards:
       - type: "custom:button-card"
         template: card_light
         entity: light.interrupteur_aqara_entree_left
+        variables:
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.switch_cuisine_plafonnier
         variables:
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true

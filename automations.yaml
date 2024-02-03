@@ -496,10 +496,10 @@
     path: Blackshome/sensor-light.yaml
     input:
       motion_trigger:
-      - binary_sensor.capteur_mouvement_entree_aqara_occupancy
+      - binary_sensor.capteur_ld2410c_ld2450_entree_presence_ld2450
       light_switch:
         entity_id: light.interrupteur_aqara_entree_left
-      time_delay: 2
+      time_delay: 0
       include_sun: sun_enabled
       ambient_light_options: ambient_light_option_enabled
       ambient_light_sensor: sensor.capteur_mouvement_entree_aqara_illuminance_lux
@@ -510,6 +510,7 @@
       - input_boolean.killswitch_entree_mouvement_lumiere
       include_bypass:
       - bypass_enabled_turn_off
+      sun_elevation: 0
 - id: '1700176345431'
   alias: La balise Alarme NFC est analysée
   description: ''
@@ -601,20 +602,6 @@
     entity_id: a45042c6d5d9888d5170afbb54e6d154
     domain: binary_sensor
     id: presence_off
-  - type: distance
-    platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: 9578598ef69b1dba0864e78ed2fb5972
-    domain: sensor
-    id: approche bureau
-    below: 230
-  - type: distance
-    platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: 9578598ef69b1dba0864e78ed2fb5972
-    domain: sensor
-    id: sortie bureau
-    above: 230
   - type: present
     platform: device
     device_id: 14cd7cd073db33d37ed458ab2dcc2773
@@ -627,6 +614,18 @@
     entity_id: 9ec6a7a7a5a7856eb17358a544995e84
     domain: binary_sensor
     id: presence off with gpio out + light
+  - type: occupied
+    platform: device
+    device_id: a920d899b6541f5db2d18348fdbc240a
+    entity_id: 2fbe14964a28e57a37b440993d895bf4
+    domain: binary_sensor
+    id: presence_zone_bureau_mathieu
+  - type: not_occupied
+    platform: device
+    device_id: a920d899b6541f5db2d18348fdbc240a
+    entity_id: 2fbe14964a28e57a37b440993d895bf4
+    domain: binary_sensor
+    id: presence_off_zone_bureau_mathieu
   condition: []
   action:
   - choose:
@@ -666,7 +665,7 @@
         conditions:
         - condition: trigger
           id:
-          - approche bureau
+          - presence_zone_bureau_mathieu
         - type: is_occupied
           condition: device
           device_id: 14cd7cd073db33d37ed458ab2dcc2773
@@ -677,7 +676,7 @@
         device_id: 34c58297351f66716de9a7b5038ace8f
         entity_id: 720dc4f94c87c9ece94c02060b59aecd
         domain: light
-        enabled: false
+        enabled: true
     - conditions:
       - condition: or
         conditions:
@@ -690,12 +689,7 @@
           conditions:
           - condition: trigger
             id:
-            - sortie bureau
-          - type: is_occupied
-            condition: device
-            device_id: 14cd7cd073db33d37ed458ab2dcc2773
-            entity_id: a45042c6d5d9888d5170afbb54e6d154
-            domain: binary_sensor
+            - presence_off_zone_bureau_mathieu
       sequence:
       - type: turn_off
         device_id: 34c58297351f66716de9a7b5038ace8f
