@@ -72,6 +72,13 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_light
+        entity: light.lumieres_bureau_mathieu
+        variables:
+          ulm_card_light_name: Lumières Bureau Mathieu
+          ulm_card_light_enable_color: true
+          ulm_card_light_force_background_color: true
+      - type: "custom:button-card"
+        template: card_light
         entity: light.lampe_rgbw_bureau_pc
         variables:
           ulm_card_light_name: Lampe RGBW Bureau Mathieu
@@ -91,6 +98,142 @@ cards:
           ulm_card_light_name: Ruban LED RGB PC Backlight
           ulm_card_light_enable_color: true
           ulm_card_light_force_background_color: true
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        entity: cover.flexispot_2_desk
+        show_name: false
+        show_state: false
+        show_icon: false
+        styles:
+          card:
+            - overflow: unset
+            - padding: 3px
+          grid:
+            - grid-template-areas: '"mushroom colors"'
+            - grid-template-columns: auto 15rem
+        custom_fields:
+          mushroom:
+            card:
+              type: custom:mushroom-template-card
+              entity: "[[[ return entity.entity_id ]]]"
+              tap_action:
+                action: more-info
+              icon_color: blue
+              primary: '{{ state_attr(entity,"friendly_name") }}'
+              secondary: >-
+                {{ states("sensor.flexispot_2_desk_height") }} {{
+                state_attr("sensor.flexispot_2_desk_height","unit_of_measurement") }}
+              icon: '{{ state_attr(entity,"icon") }}'
+              card_mod:
+                style: |
+                  ha-card {
+                  // padding: 3px 3px 3px 3px !important; #comment this line out if you want the bigger paddings around the card
+                    text-align: left !important;
+                    border: none !important;
+                    box-shadow: none !important;
+                  }
+          colors:
+            card:
+              type: grid
+              columns: 5
+              square: false
+              cards:
+                - type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: cover.close_cover
+                    service_data:
+                      entity_id: cover.flexispot_2_desk
+                  size: 70%
+                  show_state: false
+                  show_name: false
+                  show_icon: true
+                  icon: mdi:arrow-down
+                  styles:
+                    card:
+                      - padding: 3px
+                      - height: 40px
+                      - width: 2.5rem
+                      - box-shadow: none
+                      - border: none
+                      - background: var(--secondary-background-color)
+                - type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: cover.stop_cover
+                    service_data:
+                      entity_id: cover.flexispot_2_desk
+                  size: 70%
+                  show_state: false
+                  show_name: false
+                  show_icon: true
+                  icon: mdi:pause
+                  styles:
+                    card:
+                      - padding: 3px
+                      - height: 40px
+                      - width: 2.5rem
+                      - box-shadow: none
+                      - border: none
+                      - background: var(--secondary-background-color)
+                - type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: cover.open_cover
+                    service_data:
+                      entity_id: cover.flexispot_2_desk
+                  size: 70%
+                  show_state: false
+                  show_name: false
+                  show_icon: true
+                  icon: mdi:arrow-up
+                  styles:
+                    card:
+                      - padding: 3px
+                      - height: 40px
+                      - width: 2.5rem
+                      - box-shadow: none
+                      - border: none
+                      - background: var(--secondary-background-color)
+                - type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: switch.turn_on
+                    service_data:
+                      entity_id: switch.flexispot_2_preset_1
+                  size: 70%
+                  show_state: false
+                  show_name: false
+                  show_icon: true
+                  icon: mdi:chair-rolling
+                  styles:
+                    card:
+                      - padding: 0px
+                      - height: 40px
+                      - width: 2.5rem
+                      - box-shadow: none
+                      - border: none
+                      - background: var(--secondary-background-color)
+                - type: custom:button-card
+                  tap_action:
+                    action: call-service
+                    service: switch.turn_on
+                    service_data:
+                      entity_id: switch.flexispot_2_preset_2
+                  show_state: false
+                  show_name: false
+                  show_icon: true
+                  icon: mdi:human-handsup
+                  size: 70%
+                  styles:
+                    card:
+                      - padding: 0px
+                      - height: 100%
+                      - width: 2.5rem
+                      - box-shadow: none
+                      - border: none
+                      - background: var(--secondary-background-color)
 
   - type: "custom:button-card"
     template: card_title

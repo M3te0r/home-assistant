@@ -12,8 +12,8 @@ This is my Home Assistant installation.
 
 Description | value
 -- | --
-Number of entities | 1134
-Number of sensors | 600
+Number of entities | 1309
+Number of sensors | 655
 
 
 ## My installed extensions:
@@ -95,6 +95,7 @@ Number of sensors | 600
 - [Button Card](https://github.com/custom-cards/button-card)
 - [Canary](https://github.com/jcwillox/lovelace-canary)
 - [Card Mod](https://github.com/thomasloven/lovelace-card-mod)
+- [Card To Display Bar Chart Oriented To Display Power Sensors](https://github.com/tdvtdv/ha-tdv-bar)
 - [Card Tools](https://github.com/thomasloven/lovelace-card-tools)
 - [Collapsable Cards](https://github.com/RossMcMillan92/lovelace-collapsable-cards)
 - [Energy Entity Row](https://github.com/zeronounours/lovelace-energy-entity-row)
@@ -129,10 +130,12 @@ Number of sensors | 600
 - [Vacuum Card](https://github.com/denysdovhan/vacuum-card)
 - [Vertical Stack In Card](https://github.com/ofekashery/vertical-stack-in-card)
 - [Weather Card](https://github.com/bramkragten/weather-card)
+- [Weather Chart Card](https://github.com/mlamberts78/weather-chart-card)
 - [Windrose Card](https://github.com/aukedejong/lovelace-windrose-card)
 - [Xiaomi Vacuum Map Card](https://github.com/PiotrMachowski/lovelace-xiaomi-vacuum-map-card)
 
 ### Themes
+- [Material Rounded Theme   Based On Material You By Google On Android](https://github.com/Nerwyn/material-rounded-theme)
 - [Mushroom Themes](https://github.com/piitaya/lovelace-mushroom-themes)
 
 

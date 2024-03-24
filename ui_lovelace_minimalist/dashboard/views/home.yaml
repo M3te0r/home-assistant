@@ -169,7 +169,7 @@ cards:
         entity: switch.switch_bureau
         variables:
           ulm_custom_card_esh_room_light_entity_1: switch.switch_bureau
-          ulm_custom_card_esh_room_light_entity_2: light.lampe_rgbw_bureau_pc
+          ulm_custom_card_esh_room_light_entity_2: light.lumieres_bureau_mathieu
         icon: mdi:office-building
         tap_action:
           action: navigate

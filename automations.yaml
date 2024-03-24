@@ -108,10 +108,6 @@
     device_id: ed846cfca5fd4bb6829e9769e07b9e27
     entity_id: light.ruban_led_rgb_pc_backlight
     domain: light
-  - type: turn_off
-    device_id: 3cf59aae4dab4736703593ce385e5109
-    entity_id: 82de55f8c607126dfd37b8eac710244f
-    domain: light
   mode: single
 - id: '1689715410941'
   alias: Enable/Disable wallpanel charging
@@ -496,21 +492,24 @@
     path: Blackshome/sensor-light.yaml
     input:
       motion_trigger:
-      - binary_sensor.capteur_ld2410c_ld2450_entree_presence_ld2450
+      - binary_sensor.capteur_ld2450_entree_bis_zone_3_occupancy
       light_switch:
         entity_id: light.interrupteur_aqara_entree_left
       time_delay: 0
       include_sun: sun_enabled
       ambient_light_options: ambient_light_option_enabled
       ambient_light_sensor: sensor.capteur_mouvement_entree_aqara_illuminance_lux
-      ambient_light_value: 10
+      ambient_light_value: 20
       include_ambient: ambient_enabled
-      ambient_light_high_value: 70
+      ambient_light_high_value: 80
       motion_bypass_lights_off:
       - input_boolean.killswitch_entree_mouvement_lumiere
       include_bypass:
       - bypass_enabled_turn_off
-      sun_elevation: 0
+      sun_elevation: 1
+      include_time: time_enabled
+      after_time: 07:00:00
+      before_time: 01:00:00
 - id: '1700176345431'
   alias: La balise Alarme NFC est analysée
   description: ''
@@ -591,29 +590,16 @@
   trigger:
   - type: occupied
     platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: a45042c6d5d9888d5170afbb54e6d154
+    device_id: cf1220201c072cf06058c0aa01bf6093
+    entity_id: 2281233bff80fbcef526e0d1b47bea46
     domain: binary_sensor
     id: presence_on
-    enabled: true
   - type: not_occupied
     platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: a45042c6d5d9888d5170afbb54e6d154
+    device_id: cf1220201c072cf06058c0aa01bf6093
+    entity_id: 2281233bff80fbcef526e0d1b47bea46
     domain: binary_sensor
     id: presence_off
-  - type: present
-    platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: 9ec6a7a7a5a7856eb17358a544995e84
-    domain: binary_sensor
-    id: presence with gpio out + light
-  - type: not_present
-    platform: device
-    device_id: 14cd7cd073db33d37ed458ab2dcc2773
-    entity_id: 9ec6a7a7a5a7856eb17358a544995e84
-    domain: binary_sensor
-    id: presence off with gpio out + light
   - type: occupied
     platform: device
     device_id: a920d899b6541f5db2d18348fdbc240a
@@ -630,22 +616,27 @@
   action:
   - choose:
     - conditions:
-      - condition: or
+      - condition: and
         conditions:
         - condition: trigger
           id:
-          - presence with gpio out + light
-        - condition: and
+          - presence_on
+        - condition: or
           conditions:
-          - type: is_value
+          - condition: and
+            conditions:
+            - type: is_value
+              condition: device
+              device_id: 507e363b8b5bd2066bf744b7ed2d8c31
+              entity_id: 52bb99dd1c1a1183285ea3e00cd6b3e2
+              domain: sensor
+              below: -1
+          - type: is_illuminance
             condition: device
-            device_id: 507e363b8b5bd2066bf744b7ed2d8c31
-            entity_id: 52bb99dd1c1a1183285ea3e00cd6b3e2
+            device_id: cf1220201c072cf06058c0aa01bf6093
+            entity_id: c608086a0c3565145dbcfb423e8e060b
             domain: sensor
-            below: -1
-          - condition: trigger
-            id:
-            - presence_on
+            below: 70
       sequence:
       - type: turn_on
         device_id: 53552760c1c406130f77d8044950f639
@@ -668,32 +659,67 @@
           - presence_zone_bureau_mathieu
         - type: is_occupied
           condition: device
-          device_id: 14cd7cd073db33d37ed458ab2dcc2773
-          entity_id: a45042c6d5d9888d5170afbb54e6d154
+          device_id: cf1220201c072cf06058c0aa01bf6093
+          entity_id: 2281233bff80fbcef526e0d1b47bea46
           domain: binary_sensor
       sequence:
-      - type: turn_on
-        device_id: 34c58297351f66716de9a7b5038ace8f
-        entity_id: 720dc4f94c87c9ece94c02060b59aecd
-        domain: light
-        enabled: true
+      - service: light.turn_on
+        metadata: {}
+        data:
+          transition: 4
+        target:
+          entity_id: light.lumieres_bureau_mathieu
     - conditions:
       - condition: or
         conditions:
         - type: is_not_occupied
           condition: device
-          device_id: 14cd7cd073db33d37ed458ab2dcc2773
-          entity_id: a45042c6d5d9888d5170afbb54e6d154
+          device_id: cf1220201c072cf06058c0aa01bf6093
+          entity_id: 2281233bff80fbcef526e0d1b47bea46
           domain: binary_sensor
-        - condition: and
-          conditions:
-          - condition: trigger
-            id:
-            - presence_off_zone_bureau_mathieu
+        - condition: trigger
+          id:
+          - presence_off_zone_bureau_mathieu
+          - presence_off
       sequence:
-      - type: turn_off
-        device_id: 34c58297351f66716de9a7b5038ace8f
-        entity_id: 720dc4f94c87c9ece94c02060b59aecd
-        domain: light
+      - service: light.turn_off
+        metadata: {}
+        data:
+          transition: 4
+        target:
+          entity_id: light.lumieres_bureau_mathieu
   mode: queued
   max: 12
+- id: '1707003699925'
+  alias: Sensor Light Cuisine
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      motion_trigger:
+      - binary_sensor.capteur_ld2450_entree_bis_zone_2_occupancy
+      light_switch:
+        entity_id: light.switch_cuisine_plafonnier
+      time_delay: 0.5
+      include_sun: sun_enabled
+      sun_elevation: 0
+      after_time: 07:00:00
+      before_time: 01:00:00
+      include_time: time_enabled
+- id: '1708454008051'
+  alias: Boite aux lettres
+  description: ''
+  trigger:
+  - type: opened
+    platform: device
+    device_id: a3449524aacd3926874bab7186616417
+    entity_id: a57ff7ef56b991502905c2d6fa8e274f
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: notify.mobile_app_cph2399
+    metadata: {}
+    data:
+      message: "\U0001F4EB\U0001F4EB\U0001F4EB\U0001F4EB"
+      title: "\U0001F4EB\U0001F4EB\U0001F4EB\U0001F4EB"
+  mode: single
