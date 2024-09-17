@@ -43,3 +43,28 @@ shutdown_pc_m3te0r:
     type: press
   mode: single
   icon: mdi:desktop-classic
+lumiere_bureau_up:
+  alias: lumiere_bureau_up
+  sequence:
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_step_pct: 5
+      transition: 1
+    target:
+      entity_id:
+      - light.ruban_led_rgb_sous_bureau
+  mode: queued
+  max: 20
+lumiere_bureau_down:
+  alias: lumiere_bureau_down
+  sequence:
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_step_pct: -5
+    target:
+      entity_id:
+      - light.ruban_led_rgb_sous_bureau
+  mode: queued
+  max: 20

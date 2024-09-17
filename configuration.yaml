@@ -18,6 +18,17 @@ homeassistant:
 recorder:
   purge_keep_days: 60
   exclude:
+    domains:
+      #- automation
+      - update
+      #- script
+      - image
+      - camera
+    entity_globs:
+      - sensor.shopping_list_with_grocy*
+      - sensor.too_good_to_go*
+      - sensor.*uptime*
+      - sensor.*_internal_temperature
     entities:
       - climate.thermostat
       - lock.thermostat_child_lock
@@ -47,6 +58,75 @@ recorder:
       - lock.prise_2_child_lock
       - update.prise_2
       - sensor.android_bluedroid_internal_storage_free_space
+      - sensor.capteur_salon_s3_mini_still_energy
+      - sensor.capteur_salon_s3_mini_still_distance
+      - sensor.capteur_presence_bureau_s3_mini_still_energy
+      - sensor.capteur_presence_bureau_s3_mini_detection_distance
+      - sensor.capteur_presence_bureau_s3_mini_stil_distance
+      - sensor.capteur_presence_bureau_s3_mini_moving_distance
+      - sensor.capteur_presence_bureau_s3_mini_still_distance
+      - sensor.capteur_presence_ld2450_bureau_target_1_direction
+      - sensor.capteur_presence_ld2450_bureau_target_1_speed
+      - sensor.capteur_presence_ld2450_bureau_target_1_x
+      - sensor.capteur_presence_ld2450_bureau_target_1_y
+      - sensor.capteur_presence_ld2450_bureau_target_1_distance
+      - sensor.capteur_presence_ld2450_bureau_target_1_angle
+      - sensor.capteur_presence_salon_still_energy
+      - sensor.capteur_ld2450_entree_bis_target_1_x_2
+      - sensor.capteur_ld2450_entree_bis_target_1_y_2
+      - sensor.capteur_ld2450_entree_bis_target_1_distance_2
+      - sensor.capteur_ld2450_entree_bis_target_1_angle_2
+      - sensor.capteur_ld2450_entree_bis_target_1_speed_2
+      - sensor.ld2450_bureau_53l3cu5_target1_x
+      - sensor.ld2450_bureau_53l3cu5_target1_y
+      - sensor.ld2450_bureau_53l3cu5_target1_angle
+      - sensor.capteur_presence_bureau_s3_mini_move_energy
+      - sensor.a1_03919c440501678_signal_wi_fi
+      - sensor.ld2450_bureau_53l3cu5_target1_position
+      - image.a1_03919c440501678_camera
+      - sensor.ld2450_bureau_53l3cu5_target1_speed
+      - sensor.ld2450_bureau_53l3cu5_zone2_target_counts
+      - sensor.packets_out_end0
+      - sensor.packets_in_end0
+      - sensor.watchman_missing_entities
+      - sensor.watchman_missing_services
+      - sensor.watchman_last_updated
+      - sensor.products_shopping_list_with_grocy
+      - sensor.shopping_list_shopping_list_with_grocy
+      - sensor.network_in_end0
+      - sensor.network_out_end0
+      - sensor.ipv4_address_end0
+      - sensor.ipv6_address_end0
+      - sensor.memory_free
+      - sensor.time_utc
+      - sensor.time_date
+      - sensor.time
+      - sensor.date_time_utc
+      - sensor.date_time_iso
+      - sensor.date_time
+      - sensor.ld2450_bureau_53l3cu5_target2_x
+      - sensor.ld2450_bureau_53l3cu5_target2_y
+      - sensor.ld2450_bureau_53l3cu5_target2_angle
+      - sensor.capteur_ens160_s3_mini_uptime
+      - sensor.ld2450_bureau_53l3cu5_zone1_target_counts
+      - sensor.flexispot_2_uptime
+      - binary_sensor.capteur_presence_bureau_s3_mini_moving_target
+      - sensor.load_5m
+      - sensor.load_15m
+      - sensor.redmi_note_9_free_memory
+      - sensor.capteur_ens160_s3m_2_uptime
+      - sensor.flexispot_2_wifi_signal
+      - sensor.backup_state
+      - sensor.bordeaux_next_rain
+      - sensor.m3te0r_audio_sessions
+      - sensor.network_throughput_in_end0
+      - sensor.network_throughput_out_end0
+      - sensor.myenedis_50080550746371_production
+      - sensor.myenedis_50080550746371_ecowatt
+      - sensor.myenedis_history_50080550746371_hp
+      - sensor.myenedis_history_50080550746371_hc
+      - sensor.radarr_disk_space_movies
+      - sensor.capteur_ens160_s3_mini_internal_temperature
 
 # Text to speech
 tts:
@@ -111,7 +191,6 @@ sensor:
       - "date_time_iso"
       - "time_date"
       - "time_utc"
-      - "beat"
 
 http:
   use_x_forwarded_for: true

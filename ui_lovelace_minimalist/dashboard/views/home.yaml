@@ -200,14 +200,13 @@ cards:
       - binary_sensor.capteur_mouvement_salon_occupancy
       - light.switch_bureau
       - light.switch_chambre
-      - light.ampoule_w_couloir_cuisine_salon
       - light.interrupteur_aqara_entree_left
       - cover.volet_salon
       - cover.volet_chambre
       - vacuum.roborock_s7_maxv
       - switch.lave_vaisselle_power
       - sensor.lave_vaisselle_operation_state
-      - switch.android_bluedroid_screen
+      - switch.redmi_note_9_screen
       - person.mathieu
       - person.marie
   - !include bedroom.yaml
