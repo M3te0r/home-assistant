@@ -344,10 +344,10 @@
         id:
         - 1 single
       sequence:
-      - service: light.toggle
-        data: {}
+      - data: {}
         target:
           entity_id: light.lumieres_salon_1_lampadaire_canape
+        action: light.toggle
     - conditions:
       - condition: trigger
         id:
@@ -359,31 +359,31 @@
             entity_id: light.ampoule_rgbw_salon
             state: 'on'
           sequence:
-          - service: light.turn_off
-            target:
+          - target:
               entity_id: light.lumieres_salon
             data: {}
+            action: light.turn_off
         - conditions:
           - condition: state
             entity_id: light.lumieres_salon_1_lampadaire_canape
             state: 'on'
           sequence:
-          - service: light.turn_on
-            target:
+          - target:
               entity_id:
               - light.lumieres_salon
               device_id: []
               area_id: []
             data: {}
+            action: light.turn_on
         - conditions:
           - condition: state
             entity_id: light.lumieres_salon
             state: 'off'
           sequence:
-          - service: light.turn_on
-            target:
+          - target:
               entity_id: light.lumieres_salon
             data: {}
+            action: light.turn_on
     - conditions:
       - condition: trigger
         id:
@@ -439,32 +439,6 @@
     - conditions:
       - condition: trigger
         id:
-        - 2 single
-      sequence:
-      - choose:
-        - conditions:
-          - condition: state
-            entity_id: light.ampoule_rgbw_salon
-            state: 'on'
-          sequence:
-          - service: light.turn_on
-            data:
-              brightness_step: 20
-            target:
-              entity_id: light.lumieres_salon
-        - conditions:
-          - condition: state
-            entity_id: light.lumieres_salon_1_lampadaire_canape
-            state: 'on'
-          sequence:
-          - service: light.turn_on
-            target:
-              entity_id: light.lumieres_salon_1_lampadaire_canape
-            data:
-              brightness_step: 20
-    - conditions:
-      - condition: trigger
-        id:
         - 2 double
       sequence:
       - choose:
@@ -473,21 +447,47 @@
             entity_id: light.ampoule_rgbw_salon
             state: 'on'
           sequence:
-          - service: light.turn_on
-            data:
+          - data:
               brightness_step: -20
             target:
               entity_id: light.lumieres_salon
+            action: light.turn_on
         - conditions:
           - condition: state
             entity_id: light.lumieres_salon_1_lampadaire_canape
             state: 'on'
           sequence:
-          - service: light.turn_on
-            target:
+          - target:
               entity_id: light.lumieres_salon_1_lampadaire_canape
             data:
               brightness_step: -20
+            action: light.turn_on
+    - conditions:
+      - condition: trigger
+        id:
+        - 2 single
+      sequence:
+      - choose:
+        - conditions:
+          - condition: state
+            entity_id: light.ampoule_rgbw_salon
+            state: 'on'
+          sequence:
+          - data:
+              brightness_step: 20
+            target:
+              entity_id: light.lumieres_salon
+            action: light.turn_on
+        - conditions:
+          - condition: state
+            entity_id: light.lumieres_salon_1_lampadaire_canape
+            state: 'on'
+          sequence:
+          - target:
+              entity_id: light.lumieres_salon_1_lampadaire_canape
+            data:
+              brightness_step: 20
+            action: light.turn_on
   mode: single
 - id: '1700090409115'
   alias: Lumière Mouvement Couloir Cuisine-Salon
@@ -799,3 +799,22 @@
       isolator: input_boolean.decoupled_switch_bureau
       controlled_light:
         entity_id: light.lampe_rgbw_bureau_pc
+- id: '1727281700769'
+  alias: Ouverure étagère cuisine
+  description: ''
+  use_blueprint:
+    path: Blackshome/sensor-light.yaml
+    input:
+      motion_trigger:
+      - binary_sensor.capteur_ouverture_etagere_cuisine_1_contact
+      light_switch:
+        entity_id: light.ruban_led_rgb_etagere_cuisine_1
+      time_delay: 0
+      include_light_control:
+      - use_transition
+      - use_brightness
+      light_transition_on: 3
+      light_transition_off: 5
+      light_brightness: 30
+      include_light_colour_control: use_colour_temperature
+      light_colour_temperature: 2700

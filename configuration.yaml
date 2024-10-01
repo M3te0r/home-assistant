@@ -127,6 +127,43 @@ recorder:
       - sensor.myenedis_history_50080550746371_hc
       - sensor.radarr_disk_space_movies
       - sensor.capteur_ens160_s3_mini_internal_temperature
+      - fan.a1_03919c440501678_ventilateur_auxiliaire
+      - sensor.a1_03919c440501678_vitesse_du_ventilateur_auxiliaire
+      - fan.a1_03919c440501678_ventilateur_de_refroidissement
+      - sensor.a1_03919c440501678_vitesse_du_ventilateur_de_refroidissement
+      - sensor.capteur_ens160_s3_mini_temperature
+      - sensor.ld2450_bureau_53l3cu5_target2_position
+      - sensor.capteur_ens160_s3m_2_humidity
+      - sensor.capteur_ld2450_entree_bis_internal_temperature
+      - sensor.capteur_ens160_s3m_2_temperature
+      - sensor.m3te0r_audio_peak_volume
+      - sensor.ld2450_bureau_53l3cu5_target1_direction
+      - sensor.flexispot_2_internal_temperature
+      - sensor.capteur_ld2450_entree_bis_uptime_sensor
+      - sensor.tv_ambilight_courant_estime
+      - sensor.capteur_presence_bureau_s3_mini_uptime_sensor
+      - sensor.capteur_presence_bureau_s3_mini_internal_temperature
+      - sensor.a1_03919c440501678_vitesse_du_ventilateur_de_l_isolateur_thermique
+      - sensor.a1_03919c440501678_temperature_de_la_buse
+      - sensor.a1_03919c440501678_temperature_du_lit
+      - sensor.capteur_ld2450_entree_bis_target_2_x_2
+      - sensor.capteur_ld2450_entree_bis_target_2_y_2
+      - sensor.capteur_ld2450_entree_bis_target_2_distance_2
+      - sensor.capteur_ld2450_entree_bis_zone_3_target_count
+      - sensor.m3te0r_memory_used
+      - sensor.m3te0r_stockage_c_2
+      - sensor.m3te0r_charge_cpu
+      - sensor.opnsense_interface_lan_inpkts_packets_per_second
+      - sensor.opnsense_interface_lan_outpkts_packets_per_second
+      - sensor.capteur_ens160_s3m_2_internal_temperature
+      - sensor.opnsense_interface_wan_outpkts_packets_per_second
+      - sensor.opnsense_system_load_average_one_minute
+      - sensor.opnsense_interface_wan_inpkts_packets_per_second
+      - sensor.opnsense_gateway_wan_gwv6_stddev
+      - sensor.opnsense_gateway_wan_gw_stddev
+      - sensor.opnsense_system_load_average_five_minute
+      - sensor.opnsense_gateway_wan_gw_delay
+      - sensor.opnsense_gateway_wan_gwv6_delay
 
 # Text to speech
 tts:
