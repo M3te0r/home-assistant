@@ -11,6 +11,7 @@ homeassistant:
   allowlist_external_dirs:
     - /config
     - /config/www
+
   customize:
     zone.home:
       radius: 60
@@ -24,14 +25,12 @@ recorder:
       #- script
       - image
       - camera
+      - sun
     entity_globs:
       - sensor.shopping_list_with_grocy*
       - sensor.too_good_to_go*
-      - sensor.*uptime*
-      - sensor.*_internal_temperature
     entities:
       - climate.thermostat
-      - lock.thermostat_child_lock
       - number.thermostat_deadzone_temperature
       - number.thermostat_local_temperature_calibration
       - number.thermostat_max_temperature_limit
@@ -40,59 +39,24 @@ recorder:
       - switch.ruban_led_rgb_pc_backlight_do_not_disturb
       - select.ruban_led_rgb_pc_backlight_color_power_on_behavior
       - media_player.m3te0r
-      - select.prise_bureau_serveur_pc_equipements_power_outage_memory
-      - select.prise_bureau_serveur_pc_equipements_indicator_mode
-      - lock.prise_bureau_serveur_pc_equipements_child_lock
-      - update.prise_bureau_serveur_pc_equipements
       - switch.lampe_rgbw_bureau_pc_do_not_disturb
       - select.lampe_rgbw_bureau_pc_color_power_on_behavior
-      - switch.prise_bureau_serveur_pc_equipements
-      - sensor.android_bluedroid_free_memory
-      - switch.prise_lave_linge
-      - select.prise_lave_linge_power_outage_memory
-      - select.prise_lave_linge_indicator_mode
-      - lock.prise_lave_linge_child_lock
-      - update.prise_lave_linge
-      - select.prise_2_power_outage_memory
-      - select.prise_2_indicator_mode
-      - lock.prise_2_child_lock
-      - update.prise_2
-      - sensor.android_bluedroid_internal_storage_free_space
-      - sensor.capteur_salon_s3_mini_still_energy
-      - sensor.capteur_salon_s3_mini_still_distance
       - sensor.capteur_presence_bureau_s3_mini_still_energy
       - sensor.capteur_presence_bureau_s3_mini_detection_distance
-      - sensor.capteur_presence_bureau_s3_mini_stil_distance
       - sensor.capteur_presence_bureau_s3_mini_moving_distance
       - sensor.capteur_presence_bureau_s3_mini_still_distance
-      - sensor.capteur_presence_ld2450_bureau_target_1_direction
-      - sensor.capteur_presence_ld2450_bureau_target_1_speed
-      - sensor.capteur_presence_ld2450_bureau_target_1_x
-      - sensor.capteur_presence_ld2450_bureau_target_1_y
-      - sensor.capteur_presence_ld2450_bureau_target_1_distance
-      - sensor.capteur_presence_ld2450_bureau_target_1_angle
-      - sensor.capteur_presence_salon_still_energy
       - sensor.capteur_ld2450_entree_bis_target_1_x_2
       - sensor.capteur_ld2450_entree_bis_target_1_y_2
       - sensor.capteur_ld2450_entree_bis_target_1_distance_2
       - sensor.capteur_ld2450_entree_bis_target_1_angle_2
       - sensor.capteur_ld2450_entree_bis_target_1_speed_2
-      - sensor.ld2450_bureau_53l3cu5_target1_x
-      - sensor.ld2450_bureau_53l3cu5_target1_y
-      - sensor.ld2450_bureau_53l3cu5_target1_angle
       - sensor.capteur_presence_bureau_s3_mini_move_energy
       - sensor.a1_03919c440501678_signal_wi_fi
-      - sensor.ld2450_bureau_53l3cu5_target1_position
-      - image.a1_03919c440501678_camera
-      - sensor.ld2450_bureau_53l3cu5_target1_speed
-      - sensor.ld2450_bureau_53l3cu5_zone2_target_counts
       - sensor.packets_out_end0
       - sensor.packets_in_end0
       - sensor.watchman_missing_entities
       - sensor.watchman_missing_services
       - sensor.watchman_last_updated
-      - sensor.products_shopping_list_with_grocy
-      - sensor.shopping_list_shopping_list_with_grocy
       - sensor.network_in_end0
       - sensor.network_out_end0
       - sensor.ipv4_address_end0
@@ -104,45 +68,23 @@ recorder:
       - sensor.date_time_utc
       - sensor.date_time_iso
       - sensor.date_time
-      - sensor.ld2450_bureau_53l3cu5_target2_x
-      - sensor.ld2450_bureau_53l3cu5_target2_y
-      - sensor.ld2450_bureau_53l3cu5_target2_angle
       - sensor.capteur_ens160_s3_mini_uptime
-      - sensor.ld2450_bureau_53l3cu5_zone1_target_counts
-      - sensor.flexispot_2_uptime
       - binary_sensor.capteur_presence_bureau_s3_mini_moving_target
       - sensor.load_5m
       - sensor.load_15m
-      - sensor.redmi_note_9_free_memory
       - sensor.capteur_ens160_s3m_2_uptime
-      - sensor.flexispot_2_wifi_signal
       - sensor.backup_state
       - sensor.bordeaux_next_rain
-      - sensor.m3te0r_audio_sessions
       - sensor.network_throughput_in_end0
       - sensor.network_throughput_out_end0
-      - sensor.myenedis_50080550746371_production
-      - sensor.myenedis_50080550746371_ecowatt
-      - sensor.myenedis_history_50080550746371_hp
-      - sensor.myenedis_history_50080550746371_hc
-      - sensor.radarr_disk_space_movies
-      - sensor.capteur_ens160_s3_mini_internal_temperature
-      - fan.a1_03919c440501678_ventilateur_auxiliaire
-      - sensor.a1_03919c440501678_vitesse_du_ventilateur_auxiliaire
       - fan.a1_03919c440501678_ventilateur_de_refroidissement
       - sensor.a1_03919c440501678_vitesse_du_ventilateur_de_refroidissement
       - sensor.capteur_ens160_s3_mini_temperature
-      - sensor.ld2450_bureau_53l3cu5_target2_position
       - sensor.capteur_ens160_s3m_2_humidity
       - sensor.capteur_ld2450_entree_bis_internal_temperature
       - sensor.capteur_ens160_s3m_2_temperature
-      - sensor.m3te0r_audio_peak_volume
-      - sensor.ld2450_bureau_53l3cu5_target1_direction
-      - sensor.flexispot_2_internal_temperature
       - sensor.capteur_ld2450_entree_bis_uptime_sensor
       - sensor.tv_ambilight_courant_estime
-      - sensor.capteur_presence_bureau_s3_mini_uptime_sensor
-      - sensor.capteur_presence_bureau_s3_mini_internal_temperature
       - sensor.a1_03919c440501678_vitesse_du_ventilateur_de_l_isolateur_thermique
       - sensor.a1_03919c440501678_temperature_de_la_buse
       - sensor.a1_03919c440501678_temperature_du_lit
@@ -153,17 +95,49 @@ recorder:
       - sensor.m3te0r_memory_used
       - sensor.m3te0r_stockage_c_2
       - sensor.m3te0r_charge_cpu
-      - sensor.opnsense_interface_lan_inpkts_packets_per_second
-      - sensor.opnsense_interface_lan_outpkts_packets_per_second
       - sensor.capteur_ens160_s3m_2_internal_temperature
-      - sensor.opnsense_interface_wan_outpkts_packets_per_second
-      - sensor.opnsense_system_load_average_one_minute
-      - sensor.opnsense_interface_wan_inpkts_packets_per_second
-      - sensor.opnsense_gateway_wan_gwv6_stddev
-      - sensor.opnsense_gateway_wan_gw_stddev
-      - sensor.opnsense_system_load_average_five_minute
-      - sensor.opnsense_gateway_wan_gw_delay
-      - sensor.opnsense_gateway_wan_gwv6_delay
+      - sun.sun
+      - sensor.sun_solar_azimuth
+      - sensor.sun_solar_elevation
+      - sensor.capteur_ld2450_entree_bis_target_2_angle_2
+      - sensor.network_throughput_in_end0
+      - sensor.capteur_ld2450_entree_bis_zone_2_target_count
+      - sensor.swap_free
+      - sensor.capteur_presence_bureau_s3_mini_still_distance
+      - sensor.swap_use
+      - sensor.capteur_ld2450_entree_bis_target_1_resolution_2
+      - fan.a1_03919c440501678_ventilateur_de_refroidissement
+      - sensor.a1_03919c440501678_vitesse_du_ventilateur_de_refroidissement
+      - sensor.slzb_06m_temperature_de_la_puce_zigbee
+      - sensor.m3te0r_temperature_gpu
+      - sensor.a1_03919c440501678_temps_restant
+      - sensor.capteur_ld2450_entree_bis_target_2_speed_2
+      - sensor.capteur_presence_pc_mathieu_2_still_energy
+      - sensor.capteur_presence_pc_mathieu_2_still_distance
+      - sensor.capteur_presence_pc_mathieu_2_detection_distance
+      - sensor.capteur_presence_pc_mathieu_2_moving_distance
+      - sensor.capteur_presence_lux_cuisine_still_energy
+      - sensor.capteur_presence_pc_mathieu_2_move_energy
+      - binary_sensor.capteur_presence_pc_mathieu_2_moving_target
+      - binary_sensor.capteur_presence_pc_mathieu_2_still_target
+      - binary_sensor.capteur_presence_pc_mathieu_2_gpio_out_pin_presence
+      - sensor.thermostat_program
+      - select.prise_bambu_lab_a1_power_outage_memory
+      - select.prise_bambu_lab_a1_indicator_mode
+      - select.prise_frigo_power_outage_memory
+      - select.prise_frigo_indicator_mode
+      - select.prise_lave_vaisselle_power_outage_memory
+      - select.prise_lave_vaisselle_indicator_mode
+      - select.prise_congelateur_power_outage_memory
+      - select.prise_congelateur_indicator_mode
+      - binary_sensor.updating_shopping_list_with_grocy_2
+      - sensor.everything_presence_lite_5a3f3c_target_1_distance
+      - sensor.everything_presence_lite_5a3f3c_target_1_angle
+      - sensor.everything_presence_lite_5a3f3c_target_1_x
+      - sensor.everything_presence_lite_5a3f3c_target_1_y
+      - sensor.everything_presence_lite_5a3f3c_target_1_speed
+      - sensor.freebox_download_speed
+      - sensor.freebox_upload_speed
 
 # Text to speech
 tts:
@@ -171,9 +145,7 @@ tts:
 
 media_player:
   - platform: yamaha
-    host: 192.168.2.28
-
-expose_camera_stream_source:
+    host: 192.168.2.195
 
 wake_on_lan:
 
@@ -205,16 +177,6 @@ switch:
 sensor:
   - platform: template
     sensors:
-      freebox_download_speed_mbytes_per_sec:
-        friendly_name: "Download speed"
-        value_template: "{{ (states('sensor.freebox_download_speed') | float / 1000) | round(3) }}"
-        unit_of_measurement: MB/s
-        device_class: data_rate
-      freebox_upload_speed_mbytes_per_sec:
-        friendly_name: "Uppload speed"
-        value_template: "{{ (states('sensor.freebox_upload_speed') | float / 1000) | round(3) }}"
-        unit_of_measurement: MB/s
-        device_class: data_rate
       outside_temperature:
         friendly_name: "outside_temperature"
         unit_of_measurement: "°C"
@@ -232,12 +194,24 @@ sensor:
 http:
   use_x_forwarded_for: true
   trusted_proxies:
-    - 192.168.2.40
-    - 192.168.2.125
+    - 192.168.2.6
 
 bluetooth:
 
 powercalc:
+
+notify:
+  - name: "Notification Free Mobile Mathieu"
+    platform: free_mobile
+    username: !secret FREE_MOBILE_ACCOUNT_ID
+    access_token: !secret FREE_MOBILE_TOKEN
+
+keyboard_remote:
+  - device_descriptor: "/dev/input/event3"
+    type: "key_down"
+    emulate_key_hold: true
+    emulate_key_hold_delay: 0.25
+    emulate_key_hold_repeat: 2.0
 
 automation: !include automations.yaml
 script: !include scripts.yaml

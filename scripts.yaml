@@ -1,39 +1,3 @@
-volet_a_moitite_ouvert:
-  alias: Volet à moitité ouvert
-  sequence:
-  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
-    domain: cover
-    entity_id: cover.volet_salon
-    type: set_position
-    position: 60
-  mode: single
-voulet_filet_de_lumiere:
-  alias: Volet filet de lumière
-  sequence:
-  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
-    domain: cover
-    entity_id: cover.volet_salon
-    type: set_position
-    position: 11
-  mode: single
-volet_ferme:
-  alias: Volet fermé
-  sequence:
-  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
-    domain: cover
-    entity_id: cover.volet_salon
-    type: set_position
-    position: 0
-  mode: single
-volet_ouvert:
-  alias: Volet ouvert
-  sequence:
-  - device_id: 17a014e2e3a6034079b0f55d5d56ca0f
-    domain: cover
-    entity_id: cover.volet_salon
-    type: set_position
-    position: 100
-  mode: single
 shutdown_pc_m3te0r:
   alias: Shutdown PC M3te0r
   sequence:
@@ -68,3 +32,37 @@ lumiere_bureau_down:
       - light.ruban_led_rgb_sous_bureau
   mode: queued
   max: 20
+turn_off_cuisine:
+  alias: Turn off cuisine
+  sequence:
+  - action: light.turn_off
+    metadata: {}
+    data:
+      transition: 10
+    target:
+      entity_id:
+      - light.ruban_haut_etageres_cuisine
+      - light.switch_cuisine_plafonnier
+  description: ''
+turn_off_lights_salon:
+  sequence:
+  - action: light.turn_off
+    metadata: {}
+    data:
+      transition: 10
+    target:
+      entity_id:
+      - light.lumieres_salon
+  alias: Turn off lights salon
+  description: ''
+turn_on_lights_salon:
+  sequence:
+  - action: light.turn_on
+    metadata: {}
+    data:
+      transition: 10
+    target:
+      entity_id:
+      - light.lumieres_salon_1_lampadaire_canape
+  alias: Turn on lights salon
+  description: ''
